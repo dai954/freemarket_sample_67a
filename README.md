@@ -36,33 +36,20 @@ Things you may want to cover:
 |sex|string|null: false|
 |birthday|string|null: false|
 |block|string|null: false|
-|credit_id|integer|null: false, foreign_key: true|
-|address_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :categorys
 - has_many :credits
 - has_many :items
-- has_many :men
-- has_many :women
-- has_many :kids
-- has_many :sports
-- has_many :interias
-- has_many :leisures
-- belongs_to :address
+- has_many :addresses
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|genre|text|null: false|
+|subgenre|text|null: false|
+|detail|text|null: false|
 ### Association
-- belongs_to :user
 - has_many :items
-- has_many :men
-- has_many :women
-- has_many :kids
-- has_many :leisures
-- has_many :sports
-- has_many :interias
+- has_many  :items,  through:  :item_categorys
 ## creditテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -77,6 +64,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
+|like|integer|null: false|
 |price|integer|null: false|
 |status|text|null: false|
 |brand|text|null: false|
@@ -85,32 +73,33 @@ Things you may want to cover:
 |method|text|null: false|
 |indication|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
 |address_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :category
+- belongs_to :brand
 - belongs_to :address
 - has_many :images
 - has_many :comments
-- belongs_to :mens
-- belongs_to :women
-- belongs_to :kids
-- belongs_to :leisures
-- belongs_to :sports
-- belongs_to :interias
+- has_many :item_categories
+- has_many :category
+- has_many  :categories,  through:  :item_categorys
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|image|null: false|
+|image1|image|null: false|
+|image2|image|null: false|
+|image3|image|null: false|
+|image4|image|null: false|
+|image5|image|null: false|
+|image6|image|null: false|
+|image7|image|null: false|
+|image8|image|null: false|
+|image9|image|null: false|
+|image10|image|null: false|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
-- belongs_to :men
-- belongs_to :woman
-- belongs_to :kid
-- belongs_to :leisure
-- belongs_to :sport
-- belongs_to :interia
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -120,106 +109,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :item
 - belongs_to :user
-## mensテーブル
-|Column|Type|Options|
-|------|----|-------|
-|outer|text|null: false|
-|inner|text|null: false|
-|bottom|text|null: false|
-|shoe|text|null: false|
-|hat|text|null: false|
-|accessory|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- has_many :users
-- belongs_to :image
-- has_many :categories
-## womanテーブル
-|Column|Type|Options|
-|------|----|-------|
-|outer|text|null: false|
-|inner|text|null: false|
-|bottom|text|null: false|
-|shoe|text|null: false|
-|hat|text|null: false|
-|accessory|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- has_many :users
-- belongs_to :image
-- has_many :categories
-## kidsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|outer|text|null: false|
-|inner|text|null: false|
-|bottom|text|null: false|
-|shoe|text|null: false|
-|hat|text|null: false|
-|accessory|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- has_many :users
-- belongs_to :image
-- has_many :categories
-## leisuresテーブル
-|Column|Type|Options|
-|------|----|-------|
-|book|text|null: false|
-|game|text|null: false|
-|ticket|text|null: false|
-|toy|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- has_many :users
-- belongs_to :image
-- has_many :categories
-## interiasテーブル
-|Column|Type|Options|
-|------|----|-------|
-|interia|text|null: false|
-|komono|text|null: false|
-|beauty|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- has_many :users
-- belongs_to :image
-- has_many :categories
-## sportsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|car|text|null: false|
-|kaden|text|null: false|
-|camera|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- belongs_to :image
-- has_many :users
-- has_many :categories
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -228,6 +117,21 @@ Things you may want to cover:
 |city|text|null: false|
 |number|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
-- belongs_to :users
+- belongs_to :user
+## item_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :item
+- belongs_to :category
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+### Association
+- has_many :items
