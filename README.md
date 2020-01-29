@@ -32,22 +32,23 @@ Things you may want to cover:
 |image|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|street|string|null: false|
 |tel|string|null: false|
 |sex|string|null: false|
 |birthday|string|null: false|
 |block|string|null: false|
 |credit_id|integer|null: false, foreign_key: true|
+|address_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :categorys
 - has_many :credits
 - has_many :items
-- has_many :mens
+- has_many :men
 - has_many :women
 - has_many :kids
 - has_many :sports
 - has_many :interias
 - has_many :leisures
+- belongs_to :address
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -56,7 +57,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_many :items
-- has_many :mens
+- has_many :men
 - has_many :women
 - has_many :kids
 - has_many :leisures
@@ -82,13 +83,14 @@ Things you may want to cover:
 |description|text|null: false|
 |burden|text|null: false|
 |method|text|null: false|
-|origin|text|null: false|
 |indication|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |image_id|integer|null: false, foreign_key: true|
+|address_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :category
+- belongs_to :address
 - has_many :images
 - has_many :comments
 - belongs_to :mens
@@ -218,3 +220,14 @@ Things you may want to cover:
 - belongs_to :image
 - has_many :users
 - has_many :categories
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|prefecture|text|null: false|
+|post|text|null: false|
+|city|text|null: false|
+|number|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :item
+- belongs_to :users
