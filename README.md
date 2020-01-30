@@ -87,16 +87,16 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image1|image|null: false|
-|image2|image|null: false|
-|image3|image|null: false|
-|image4|image|null: false|
-|image5|image|null: false|
-|image6|image|null: false|
-|image7|image|null: false|
-|image8|image|null: false|
-|image9|image|null: false|
-|image10|image|null: false|
+|image1|text|null: false|
+|image2|text|null: false|
+|image3|text|null: false|
+|image4|text|null: false|
+|image5|text|null: false|
+|image6|text|null: false|
+|image7|text|null: false|
+|image8|text|null: false|
+|image9|text|null: false|
+|image10|text|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
