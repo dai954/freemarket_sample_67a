@@ -65,7 +65,7 @@ Things you may want to cover:
 |name|string|null: false|
 |like|integer|null: false|
 |price|integer|null: false|
-|status|text|null: false|
+|status|integer|null: false|
 |brand|string|null: false|
 |description|text|null: false|
 |burden|string|null: false|
@@ -73,11 +73,9 @@ Things you may want to cover:
 |indication|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
-|address_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :brand
-- belongs_to :address
 - belongs_to :category
 - has_many :images
 - has_many :comments
