@@ -52,25 +52,25 @@ Things you may want to cover:
 ## creditテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
-|number|text|null: false|
-|security|text|null: false|
-|company|text|null: false|
+|name|string|null: false|
+|number|string|null: false|
+|security|integer|null: false|
+|company|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 |like|integer|null: false|
 |price|integer|null: false|
 |status|text|null: false|
-|brand|text|null: false|
+|brand|string|null: false|
 |description|text|null: false|
-|burden|text|null: false|
-|method|text|null: false|
-|indication|text|null: false|
+|burden|string|null: false|
+|method|string|null: false|
+|indication|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
 |address_id|integer|null: false, foreign_key: true|
@@ -84,7 +84,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
+|image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
@@ -100,9 +100,9 @@ Things you may want to cover:
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|prefecture|text|null: false|
-|post|text|null: false|
-|city|text|null: false|
+|prefecture|string|null: false|
+|post|string|null: false|
+|city|string|null: false|
 |number|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
@@ -110,6 +110,6 @@ Things you may want to cover:
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 ### Association
 - has_many :items
