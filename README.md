@@ -49,7 +49,6 @@ Things you may want to cover:
 |detail|text|null: false|
 ### Association
 - has_many :items
-- has_many  :items,  through:  :item_categorys
 ## creditテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -79,11 +78,9 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :address
+- belongs_to :category
 - has_many :images
 - has_many :comments
-- has_many :item_categories
-- has_many :category
-- has_many  :categories,  through:  :item_categorys
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -110,14 +107,6 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-## item_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- belongs_to :category
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
