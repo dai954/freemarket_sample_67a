@@ -36,7 +36,6 @@ Things you may want to cover:
 |birthday|string|null: false|
 |block|string|null: false|
 ### Association
-- has_many :categorys
 - has_many :credits
 - has_many :items
 - has_many :addresses
