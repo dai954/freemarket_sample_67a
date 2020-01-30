@@ -87,23 +87,14 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image1|text|null: false|
-|image2|text|null: false|
-|image3|text|null: false|
-|image4|text|null: false|
-|image5|text|null: false|
-|image6|text|null: false|
-|image7|text|null: false|
-|image8|text|null: false|
-|image9|text|null: false|
-|image10|text|null: false|
+|image|text|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|image|null: false|
+|text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
@@ -117,9 +108,7 @@ Things you may want to cover:
 |city|text|null: false|
 |number|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :item
 - belongs_to :user
 ## item_categoriesテーブル
 |Column|Type|Options|
