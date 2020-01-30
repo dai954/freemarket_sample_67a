@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_120504) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "genre"
     t.text "subgenre"
