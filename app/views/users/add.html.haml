@@ -1,0 +1,39 @@
+.mypage
+  = render "side"
+  .credit
+    .credit__header
+      クレジットカード情報入力
+    .credit__card
+      .credit__card__form
+        .credit__card__form__number
+          %h3 カード番号
+          %p 必須
+      = form_with(url: root_path, local: true, method: :get) do |f|
+        = f.text_field :email, {placeholder: "半角数字のみ", class: "credit__card__form__input"}
+        %ul.credit__card__form__list
+          %li1= icon("fab", "cc-visa")
+          %li2= icon("fab", "cc-mastercard")
+          %li3= icon("fab", "cc-apple-pay")
+          %li4= icon("fab", "cc-jcb")
+          %li5= icon("fab", "cc-amex")
+          %li6= icon("fab", "cc-diners-club")
+          %li7= icon("fab", "cc-discover")
+        .credit__card__form__dl
+          %h3 有効期限
+          %p 必須
+        .credit__card__form__select
+          = form_with(url: root_path, local: true, method: :get) do |f|
+            = f.date_select :keyword, {start_year: 2020, end_year: 2030, discard_month: true, discard_day: true}, class: "year"
+            年
+            = f.date_select :keyword, {use_month_numbers: true, discard_year: true, discard_day: true}, class: "month"
+            月
+        .credit__card__form__security
+          %h3 セキュリティーコード
+          %p 必須
+      = form_with(url: root_path, local: true, method: :get) do |f|
+        = f.text_field :email, {placeholder: "カード背面4桁もしくは3桁の番号", class: "credit__card__form__cord"}
+        = link_to "#", class: "credit__card__form__info" do
+          %span ?
+          %p カード裏面の番号とは?
+      = link_to "#", class: "credit__card__form__button" do
+        追加する

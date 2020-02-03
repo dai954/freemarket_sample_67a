@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def update
@@ -25,5 +24,5 @@ class ItemsController < ApplicationController
 
   def purchase
   end
-
+  
 end
