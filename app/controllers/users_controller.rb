@@ -3,7 +3,15 @@ class UsersController < ApplicationController
 
   end
 
+  def new
+
+  end
+
   def show
+
+  end
+  
+  def login
 
   end
 

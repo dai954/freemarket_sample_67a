@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
 
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show, :new] do
     collection do
+      get :login
       get :logout
       get :card
       get :add
