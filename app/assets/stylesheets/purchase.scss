@@ -1,0 +1,278 @@
+*{
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap{
+  position: relative;
+  height: 100%;
+  font-family:'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: rgb(51,51,51);
+  line-height: 1;
+  background: rgb(245,245,245);
+  display: block;
+  box-sizing: inherit;
+  
+
+ &__header{
+   height: 128px;
+   width: 1664px;
+   text-align: center;
+   
+   
+  &__image{
+    margin: 40px 0 0;
+    display: inline-block;
+    
+  }
+  
+}
+ &__main{
+  &__in{
+    width:700px;
+    margin: 0 auto; 
+    background: #fff;
+   &__header{
+     font-size: 22px;
+     padding: 32px;
+     line-height: 1.5;
+     text-align: center;
+     font-weight: bold;
+     }
+   &__buy{
+     text-align: center;
+     padding: 32px 16px;
+     border-top: 1px solid #f5f5f5;
+    &__inner{
+      max-width: 343px;
+      height: 80px;
+      margin: 0 auto;
+      text-align: center;
+     
+     &__box{
+      display: flex;
+      height: 80px;
+      &__left{
+        height: 80px;
+        width: 80px;
+        min-width: 80px;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+      }
+      &__right{
+        margin-left: 16px;
+        text-align: center;
+        
+       &__name{
+         font-size: 14px;
+         padding: 0 0 8px;
+         line-height: 1.5;
+         text-align: left;
+       }
+       &__price{
+         text-align: left;
+         font-size: 15px;
+         font-weight: 600;
+       }
+      }
+     }
+    }
+   }
+
+   &__content{
+     padding-bottom: 48px;
+     padding: 32px 16px;
+     display: block;
+     border-top: 1px solid #f5f5f5;
+    &__inner{
+      max-width: 343px;
+      margin: 0 auto;
+
+     &__form{
+       display: list-item;
+
+      &__table{
+        display: table;
+        width: 343px;
+        height: 30px;
+        text-align: center;
+        border-collapse: collapse;
+      
+       &__price{
+        font-size: 18px;
+        text-align: left;
+        display: table-cell;
+        width: 175px;
+        height: 30px;
+        font-weight: 600;
+       }
+       &__cash{
+        font-size: 18px;
+        padding: 0;
+        text-align: right;
+        display: table-cell;
+        width: 168px;
+        height: 30px;
+        font-weight: 600;
+       }
+
+      }
+      &__point{
+        margin: 24px 0 32px;
+        text-align: center;
+        color: #888;
+        width: 343px;
+        height: 14px;
+        text-align: left;
+        font-weight: 400;
+        display: flex;
+        
+       &__label{
+         display: flex;
+
+        &__check{
+          top: 50px;
+          z-index: 1;
+          width: 20px;
+          height: 20px;
+          border-radius: 2px;
+          border: 1px solid #ccc;
+          font-size: 10px;
+          line-height: 17px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ccc;
+          background-color: #ccc;
+          transition: all;
+          transition: translate(0,-50%);
+          font-family: 'icon-font';
+          
+
+        }
+        &__use{
+          
+        }
+
+       }
+      }
+     &__info{
+       padding: 32px 0;
+       text-align: left;
+       border-top: 1px solid #f5f5f5;
+      &__inner{
+        max-width: 343px;
+        margin: 0 auto;
+        display: block;
+       &__box{
+        height: 16px;
+        &__left{
+          font-size: 14px;
+          float: left;
+          font-weight: bold;
+        }
+        &__right{
+          float: right;
+          text-align: right;
+        }
+       }
+       &__credit{
+        line-height: 1.5;
+        text-align: left;
+        margin: 8px 0 0;
+        font-size: 14px;
+
+      }
+
+      }
+     }
+     &__address{
+       padding: 32px 0;
+       text-align: left;
+       border-top: 1px solid #f5f5f5;
+       display: block;
+      &__inner{
+       max-width: 343px;
+       margin: 0 auto;
+       &__box{
+        height: 16px;
+        &__left{
+         font-size: 14px;
+         float: left;
+         font-weight: bold;
+        }
+        &__right{
+         text-align: right;
+         float: right;
+         color: #0099e8;
+        }
+       }
+       &__text{
+         margin: 8px 0 0;
+         font-size: 14px;
+         line-height: 1.4;
+       }
+       
+     }
+
+     }
+     &__box{
+      padding: 32px 0;
+      padding-bottom: 0;
+      border-top: 1px solid #f5f5f5;
+      &__button{
+       background: #ea352d;
+       border: 1px solid #ea352d;
+       color: #fff;
+       width: 343px;
+       height: 50px;
+       font-size: 14px;
+       text-align: center;
+       cursor: pointer;
+       line-height: 48px;
+       font-weight: 600;
+      }
+     }
+     }
+    }
+   }
+  }
+
+ }
+
+ &__footer{
+  height: 220px;
+  width: 456px;
+  margin: 0 auto;
+  padding: 40px 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  align-items: center;
+  
+  &__message{
+   font-size: 13px;
+   text-decoration: none;
+   .a{
+    display: inline-block;
+    margin: 0 0 0 3px;
+    color: #333;
+   }
+  
+  }
+  &__logo{
+    vertical-align: middle;
+    text-align: center;
+    font-size: 150px;
+    line-height: 90px;
+    margin: 8px 0 0;
+  }
+
+ }
+}
