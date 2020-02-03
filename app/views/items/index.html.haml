@@ -7,10 +7,11 @@
         %br フリマアプリです
       .main__box1__contents__app-google
         .main__box1__contents__app-google__app
-          %a{:href => "https://apps.apple.com/jp/app/itunes-store/id915061235?mt=8", :style => "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"}
+          = link_to root_path do
+            = image_tag 'logo/app.png', height: '40px', width: '135px'
         .main__box1__contents__app-google__google
-          %a{:href => "https://play.google.com/store/apps?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
-            %img{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/en_us/badges/images/generic/ja_badge_web_generic.png", :width => "160px"}/
+          = link_to root_path do
+            = image_tag 'logo/google-play-badge.png', alt: 'Google Play で手に入れよう', height: '', width: '160px'
   .main__box2
     %h2 FURIMが選ばれる3つの理由
     .main__box2__box
@@ -50,11 +51,11 @@
       ほしかったあの商品に出会えるかもしれません。
       .main__box3__box__app-google
         .main__box3__box__app-google__app
-          %a{:href => "https://apps.apple.com/jp/app/itunes-store/id915061235?mt=8", :style => "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"}
+          = link_to root_path do
+            = image_tag 'logo/app.png', height: '40px', width: '135px'
         .main__box3__box__app-google__google
-          %a{:href => "https://play.google.com/store/apps?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
-            %img{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/en_us/badges/images/generic/ja_badge_web_generic.png", :width => "160px"}/
-
+          = link_to root_path do
+            = image_tag 'logo/google-play-badge.png', alt: 'Google Play で手に入れよう', height: '', width: '160px'
   .main__box4
     %h2 FURIMAの特徴
     .main__box4__box
