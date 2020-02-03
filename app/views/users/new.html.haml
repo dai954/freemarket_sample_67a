@@ -1,0 +1,25 @@
+.header
+  .header__logo
+    = image_tag "logo.png", class: "logo", width:"185px", height:"49px"
+.box
+  .box__login-no-account
+    = "新規会員登録"
+  .box__block
+    .box__block__1
+      Facebookでログイン
+    .box__block__2
+      Googleでログイン
+    .box__block__3
+      メールアドレス
+        
+  .footer__message
+    .footer__message__1
+      = link_to "プライバシーポリシー", "", class: "footer__message__1__2"
+    .footer__message__1
+      = link_to "メルカリ利用規約", "", class: "footer__message__1__2"
+    .footer__message__1
+      = link_to "特定商取引に関する表記", "", class: "footer__message__1__2"
+  .footer__message__logo
+    = image_tag "logo.png", class: "logo", width:"185px", height:"60px"
+  .footer__message__mozi
+    = "© Furima, Inc."

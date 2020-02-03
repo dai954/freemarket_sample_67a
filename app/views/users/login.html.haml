@@ -1,0 +1,34 @@
+.header
+  .header__logo
+    = image_tag "logo.png", class: "logo", width:"185px", height:"49px"
+
+
+.contents
+  .contents__block
+    .contents__block__login-no-account
+      アカウントをお持ちでない方はこちら
+      .contents__block__login-no-account__aaa
+        = link_to "新規会員登録", "", class: "aaa"
+  .contents__top
+    .contents__top__1
+      .contents__top__1__facebook
+        Facebookでログイン 
+      .contents__top__1__Google
+        Googleでログイン
+      .contents__top__1__mail
+        %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+      .contents__top__1__pass
+        %input.login-input-text.input-default{:name => "password", :placeholder => "パスワード", :type => "password"}/
+      .contents__top__1__login 
+        ログイン
+
+  .footer__message
+    .footer__message__1
+      = link_to "プライバシーポリシー", "", class: "footer__message__1__2"
+    .footer__message__1
+      = link_to "フリマ利用規約", "", class: "footer__message__1__2"
+    .footer__message__1
+      = link_to "特定商取引に関する表記", "", class: "footer__message__1__2"
+  .footer__logo
+    = image_tag "logo.png", class: "logo", width:"185px", height:"60px"
+  %small © Furima, Inc.
