@@ -35,6 +35,8 @@ Things you may want to cover:
 |sex|string|null: false|
 |birthday|string|null: false|
 |block|string|null: false|
+|buyer|string|null: false|
+|seller|string|null: false|
 ### Association
 - has_many :credits
 - has_many :items
