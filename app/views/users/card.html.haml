@@ -1,0 +1,15 @@
+.mypage
+  = render "side"
+  .credit
+    .credit__header
+      支払い方法
+    .credit__inner
+      .credit__inner__index
+        クレジットカード一覧
+    = link_to "#" do
+      .credit__inner__button
+        = icon("fas", "credit-card")
+        クレジットカードを追加する
+      .credit__inner__bottom
+        = link_to "#" do
+          支払い方法について >
