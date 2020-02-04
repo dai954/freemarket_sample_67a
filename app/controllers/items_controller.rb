@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
+    @item = Item.all
   end
 
   def new
@@ -8,6 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    Item.create!(item_params)
   end
 
   def edit
@@ -25,5 +27,9 @@ class ItemsController < ApplicationController
   def purchase
     render :layout => "mailer.text"
   end
-  
+  private
+  def item_params
+    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :indication, :category_id, :brand_id, :buyer_id, :seller_id)
+  end
 end
+# .merge(user_id: current_user.id)
