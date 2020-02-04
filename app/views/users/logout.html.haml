@@ -1,6 +1,6 @@
 .mypage
   = render "side"
   .logout
-    = link_to "#" do
+    = link_to destroy_user_session_path, method: :delete do
       .logout__button
         ログアウト
