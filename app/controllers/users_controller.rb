@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def new
-
+    render :layout => "mailer.text"
   end
 
   def show
