@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_043437) do
+ActiveRecord::Schema.define(version: 2020_02_04_065530) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
@@ -86,6 +86,10 @@ ActiveRecord::Schema.define(version: 2020_02_04_043437) do
     t.integer "user_id"
     t.integer "category_id"
     t.integer "brand_id"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,8 +111,12 @@ ActiveRecord::Schema.define(version: 2020_02_04_043437) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_users_on_buyer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["seller_id"], name: "index_users_on_seller_id"
   end
 
   add_foreign_key "addresses", "users"
@@ -116,4 +124,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_043437) do
   add_foreign_key "comments", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "buyers"
+  add_foreign_key "items", "sellers"
+  add_foreign_key "users", "buyers"
+  add_foreign_key "users", "sellers"
 end
