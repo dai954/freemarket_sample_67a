@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    render :layout => "mailer.text"
   end
   
 end
