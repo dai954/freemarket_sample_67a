@@ -5,6 +5,20 @@
   padding: 0;
 }
 
+
+.header{
+  display: none;
+}
+.fixed_btn{
+  display: none;
+}
+.footer-sub{
+  display: none;
+}
+.footer{
+  display: none;
+}
+
 .wrap{
   position: relative;
   height: 100%;
@@ -15,8 +29,8 @@
   background: rgb(245,245,245);
   display: block;
   box-sizing: inherit;
-  
 
+  
  &__header{
    height: 128px;
    width: 1664px;
