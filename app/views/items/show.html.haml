@@ -1,6 +1,7 @@
 .show-items-containers
   %section.item-box-container
-    %h1.item-name コイン財布 ピンク
+    %h1.item-name
+      = @item.name
     .item-main-content
       .item-photo
         .item-photo__top
@@ -26,6 +27,7 @@
           %tr
             %th ブランド
             %td
+              = @item.brand
           %tr
             %th 商品のサイズ
             %td 
@@ -41,18 +43,18 @@
               = link_to "大阪府", "#", class: "delete-decoration"
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td
+              = @item.indication
     .item-price
-      %span.item-price__bold ¥1,000
+      %span.item-price__bold
+        ¥
+        = @item.price
       %span.item-price__tax (税込)
       %span.item-price__shipping-fee 送料込み
     = link_to "購入画面に進む", "#", class: "item-buy-btn"
     .item-description
       %p.item-description__inner
-        即購入可能
-        財布のみ 出品です
-        可愛い財布
-        よろしくお願い致します(˃̵ᴗ˂̵)
+        = @item.descripstion
     .item-button
       .item-button__left
         %button.item-button__left__favorite{"data-ga": "element", "data-ga-category": "LIKE", "data-ga-label": "like!", "data-id": "m45167156558", "data-toggle": "like", name: "like!", type: "button"}
