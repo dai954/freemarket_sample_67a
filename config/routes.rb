@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
-  resources :users, only: [:index, :show, :new] do
+  resources :users, only: [:index, :show, :new, :edit, :update] do
 
     collection do
       get :login
