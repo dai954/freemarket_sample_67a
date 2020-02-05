@@ -1,3 +1,3 @@
 class Buyer < ApplicationRecord
-  has_many :buyer
+  has_many :buyers
 end

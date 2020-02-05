@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.all.order(updated_at: :desc)
+    @item = Item.all
+    @image = Image.all
   end
 
   def new
