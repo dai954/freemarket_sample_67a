@@ -132,42 +132,47 @@
         = link_to root_path do
           %h3 アーカイバ
       .main__box5__box__product-box
-        .main__box5__box__product-box__product
-          = link_to root_path do
-            .main__box5__box__product-box__product__image-box
-              = image_tag 'pict/24878087.jpg', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-            .main__box5__box__product-box__product__show-box
-              %h3 product3
-              .main__box5__box__product-box__product__show-box__date
-                %ul
-                  %li 30000円
-                  %li 
-                    %span ★
-                    0
-                %p (税込)
-        .main__box5__box__product-box__product
-          = link_to root_path do
-            .main__box5__box__product-box__product__image-box
-              = image_tag 'pict/currypan-01.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-            .main__box5__box__product-box__product__show-box
-              %h3 product2
-              .main__box5__box__product-box__product__show-box__date
-                %ul
-                  %li 20000円
-                  %li 
-                    %span ★
-                    0
-                %p (税込)
-        .main__box5__box__product-box__product
-          = link_to root_path do
-            .main__box5__box__product-box__product__image-box
-              = image_tag 'pict/unnamed.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-            .main__box5__box__product-box__product__show-box
-              %h3 product1
-              .main__box5__box__product-box__product__show-box__date
-                %ul
-                  %li 10000円
-                  %li 
-                    %span ★
-                    0
-                %p (税込)
+        - @item2.first(3).each do |item|
+          - item.images.first(3).each do |image|
+            .main__box5__box__product-box__product
+              = link_to "/items/#{item.id}", method: :get do
+                .main__box5__box__product-box__product__image-box
+                  = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                .main__box5__box__product-box__product__show-box
+                  %h3
+                    = item.name
+                  .main__box5__box__product-box__product__show-box__date
+                    %ul
+                      %li
+                        = item.price
+                        円
+                      %li 
+                        %span ★
+                        = item.like
+                    %p (税込)
+        -# .main__box5__box__product-box__product
+        -#   = link_to root_path do
+        -#     .main__box5__box__product-box__product__image-box
+        -#       = image_tag 'pict/currypan-01.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+        -#     .main__box5__box__product-box__product__show-box
+        -#       %h3 product2
+        -#       .main__box5__box__product-box__product__show-box__date
+        -#         %ul
+        -#           %li 20000円
+        -#           %li 
+        -#             %span ★
+        -#             0
+        -#         %p (税込)
+        -# .main__box5__box__product-box__product
+        -#   = link_to root_path do
+        -#     .main__box5__box__product-box__product__image-box
+        -#       = image_tag 'pict/unnamed.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+        -#     .main__box5__box__product-box__product__show-box
+        -#       %h3 product1
+        -#       .main__box5__box__product-box__product__show-box__date
+        -#         %ul
+        -#           %li 10000円
+        -#           %li 
+        -#             %span ★
+        -#             0
+        -#         %p (税込)

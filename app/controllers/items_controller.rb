@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.includes(:images).all.order(updated_at: :desc)
-  
+    @item2 = Item.includes(:images).all
   end
 
   def new
