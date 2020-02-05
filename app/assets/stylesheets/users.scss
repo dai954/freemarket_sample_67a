@@ -9,6 +9,7 @@
   padding: 50px 0px;
   height:  100%;
   background-color: #b3d4fc;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
   .mypage__nav{
     height: 100%;
     width: 260px;
@@ -58,7 +59,7 @@
       display: flex;
       justify-content: space-evenly;
       height: 100%;
-      font-size: 30px;
+      font-size: 20px;
       &__notification{
         border-bottom: 1px solid white;
         height: 70px;
@@ -93,13 +94,13 @@
 
         }
         &__text{
-          font-size: 20px;
+          font-size: 14px;
         }
         &__time{
           font-size: 16px;
           position: relative;
           top: 28px;
-          right: 340px;
+          right: 280px;
           img{
             height: 20px;
             width: 20px;
@@ -111,14 +112,12 @@
     &__index{
       text-align: center;
       font-size: 20px;
-      padding: 10px 30px;
-      margin-bottom: 60px;
-      border: 1px solid gray;
       h3{
         height: 100px;
         line-height: 100px;
         border: 1px solid rgb(143, 136, 123);
         background-color: wheat;
+        margin: 30px 0px;
       }
     }
     &__head{
