@@ -469,7 +469,7 @@
       font-size: 14px;
       text-align: center;
       background-color: white;
-      height: 500px;
+      height: 520px;
       width: 456px;
       margin-top: 3px;
       &__facebook{
@@ -490,6 +490,74 @@
         font-size: 30px;
         padding: 10px 16px 8px;
         margin-top: 30px;
+        .field {
+          margin-bottom: 10px;
+      
+          .field-label {
+            padding: 10px 0;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 200;
+      
+            i {
+              font-size: 11px;
+            }
+          }
+      
+          .field-input {
+            input {
+              width: 100%;
+              padding: 10px;
+              letter-spacing: 1px;
+            }
+          }
+        }
+      
+        .btn {
+          display: inline-block;
+          height: 50px;
+          padding: 0 80px;
+          margin-left: 70px;
+          line-height: 50px;
+          letter-spacing: 1px;
+          text-align: center;
+          border: none;
+          border-radius: 2px;
+        }
+      
+        input[type='submit'] {
+          float: left;
+          margin-top: 20px;
+          color: #fff;
+          background-color: #38aef0;
+        }
+      
+        .field-label {
+          .field_with_errors {
+            display: inline-block;
+            color: #d65f4c;
+            font-weight: 400;
+          }
+        }
+      
+        .field-input {
+          .field_with_errors {
+            position: relative;
+      
+            &:after {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              width: 5px;
+              background-color: #d65f4c;
+            }
+          }
+        }
+      }
+      
       }
       &__pass{
         font-size: 30px;
@@ -531,7 +599,6 @@
       padding-bottom: 50px;
     }
   }
-}
 
 .box {
   height: 100vh;
@@ -633,6 +700,21 @@
       content: "";
       display: block;
     }
+    .account-page__inner--main{
+      padding: 0px 300px;
+      font-size: 30px;
+      label{
+        font-size: 16px;
+      }
+      i{
+        font-size: 14px;
+      }
+      .btn {
+        background-color: blue;
+        font-size: 40px;
+        margin: 30px 0px 0px 40px;
+      }
+    }
   }
 
   .account-page__header {
@@ -665,95 +747,29 @@
       font-size: 14px;
     }
   }
-
-  .field {
-    margin-bottom: 10px;
-
-    .field-label {
-      padding: 10px 0;
-      letter-spacing: 1px;
-      font-size: 14px;
-      font-weight: 200;
-
-      i {
-        font-size: 11px;
-      }
-    }
-
-    .field-input {
-      input {
-        width: 100%;
-        padding: 10px;
-        letter-spacing: 1px;
-      }
-    }
-  }
-
-  .btn {
-    display: inline-block;
-    height: 50px;
-    padding: 0 30px;
-    line-height: 50px;
-    letter-spacing: 1px;
-    text-align: center;
-    border: none;
+  #error_explanation {
+    margin: 20px 0;
+    padding: 20px 30px;
+    border: 1px solid #ddd;
     border-radius: 2px;
-  }
-
-  input[type='submit'] {
-    float: left;
-    margin-top: 20px;
-    color: #fff;
-    background-color: #38aef0;
-  }
-
-  .field-label {
-    .field_with_errors {
-      display: inline-block;
+  
+    h2 {
+      margin-bottom: 10px;
       color: #d65f4c;
-      font-weight: 400;
+      font-size: 14px;
+    }
+  
+    ul {
+      margin: 0;
+      padding-left: 17px;
+      list-style: square;
+    }
+  
+    li {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
     }
   }
 
-  .field-input {
-    .field_with_errors {
-      position: relative;
-
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 5px;
-        background-color: #d65f4c;
-      }
-    }
-  }
-}
-
-#error_explanation {
-  margin: 20px 0;
-  padding: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-
-  h2 {
-    margin-bottom: 10px;
-    color: #d65f4c;
-    font-size: 14px;
-  }
-
-  ul {
-    margin: 0;
-    padding-left: 17px;
-    list-style: square;
-  }
-
-  li {
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-  }
 }
