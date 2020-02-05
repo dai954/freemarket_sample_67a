@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :credits
   has_many :items
   has_many :addresses
+  belongs_to :buyer
+  belongs_to :seller
 end
