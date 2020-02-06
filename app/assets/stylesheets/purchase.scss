@@ -30,24 +30,24 @@
   display: block;
   box-sizing: inherit;
 
-  
+
  &__header{
    height: 128px;
    width: 100%;
    text-align: center;
-   
-   
+
+
   &__image{
     margin: 40px 0 0;
     display: inline-block;
-    
+
   }
-  
+
 }
  &__main{
   &__in{
     width:700px;
-    margin: 0 auto; 
+    margin: 0 auto;
     background: #fff;
    &__header{
      font-size: 22px;
@@ -65,7 +65,7 @@
       height: 80px;
       margin: 0 auto;
       text-align: center;
-     
+
      &__box{
       display: flex;
       height: 80px;
@@ -81,7 +81,7 @@
       &__right{
         margin-left: 16px;
         text-align: center;
-        
+
        &__name{
          font-size: 14px;
          padding: 0 0 8px;
@@ -116,7 +116,7 @@
         height: 30px;
         text-align: center;
         border-collapse: collapse;
-      
+
        &__price{
         font-size: 18px;
         text-align: left;
@@ -145,7 +145,7 @@
         text-align: left;
         font-weight: 400;
         display: flex;
-        
+
        &__label{
          display: flex;
 
@@ -165,13 +165,9 @@
           transition: all;
           transition: translate(0,-50%);
           font-family: 'icon-font';
-          
+
 
         }
-        &__use{
-          
-        }
-
        }
       }
      &__info{
@@ -230,7 +226,7 @@
          font-size: 14px;
          line-height: 1.4;
        }
-       
+
      }
 
      }
@@ -269,7 +265,7 @@
   z-index: 1;
   text-align: center;
   align-items: center;
-  
+
   &__message{
    font-size: 13px;
    text-decoration: none;
@@ -278,7 +274,7 @@
     margin: 0 0 0 3px;
     color: #333;
    }
-  
+
   }
   &__logo{
     vertical-align: middle;
