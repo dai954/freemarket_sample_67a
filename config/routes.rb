@@ -7,6 +7,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :buyer, only: [:index, :show] do
+    collection do
+      get 'done', to: 'buyer#done'
+    end
+  end
+
+
 
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :users, only: [:index, :show, :new, :edit, :update] do
