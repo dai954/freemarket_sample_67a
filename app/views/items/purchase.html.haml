@@ -21,7 +21,7 @@
     
     .wrap__main__in__content__inner
     
-     %form.wrap__main__in__content__inner__form{action: "#"}
+     = form_with(url: purchase_credit_index_path, class: "wrap__main__in__content__inner__form", local: true, method: :post) do |f|
       %ul.wrap__main__in__content__inner__form__table
        .wrap__main__in__content__inner__form__table__price 支払い金額   
        .wrap__main__in__content__inner__form__table__cash ¥30000
@@ -63,7 +63,7 @@
          テック　太郎
 
       .wrap__main__in__content__inner__form__box
-       %button.wrap__main__in__content__inner__form__box__button{type: "submit"} 購入する
+       = f.submit "購入する", {id: "token_submit", class: "wrap__main__in__content__inner__form__box__button"}
 
  .wrap__footer
   %ul.wrap__footer__message
