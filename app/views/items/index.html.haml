@@ -82,7 +82,7 @@
           %h3 新規投稿商品
       .main__box5__box__product-box
         - @item.first(3).each do |item|
-          - item.images.first(3).each do |image|
+          - item.images.first(1).each do |image|
             .main__box5__box__product-box__product
               = link_to "/items/#{item.id}", method: :get do
                 -if item.buyer_id.present?
@@ -130,7 +130,7 @@
           %h3 アーカイバ
       .main__box5__box__product-box
         - @item.first(3).each do |item|
-          - item.images.first(3).each do |image|
+          - item.images.first(1).each do |image|
             .main__box5__box__product-box__product
               = link_to "/items/#{item.id}", method: :get do
                 -if item.buyer_id.present?
