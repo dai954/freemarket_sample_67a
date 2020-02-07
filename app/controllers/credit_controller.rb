@@ -20,11 +20,11 @@ class CreditController < ApplicationController
       # description: '登録テスト', #なくてもOK
       # email: current_user.email, #なくてもOK
       card: params['payjp-token'],
-      # metadata: {user_id: current_user.id}
-      metadata: {user_id: 1}
+      metadata: {user_id: current_user.id}
+      # metadata: {user_id: 1}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      @card = Credit.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         # redirect_to "/items"
         redirect_to action: "show"
@@ -35,8 +35,8 @@ class CreditController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    # card = Credit.where(user_id: current_user.id).first
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
+    # card = Credit.where(user_id: 1).first
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -49,8 +49,8 @@ class CreditController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    # card = Credit.where(user_id: current_user.id).first
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
+    # card = Credit.where(user_id: 1).first
     if card.blank?
       redirect_to action: "new"
     else
@@ -62,8 +62,8 @@ class CreditController < ApplicationController
 
   def purchase
   # 支払い処理
-    # card = Credit.where(user_id: current_user.id).first
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
+    # card = Credit.where(user_id: 1).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
@@ -75,12 +75,12 @@ class CreditController < ApplicationController
   # buyer_idを保存
     item_buyer = Item.find(params[:id])
     # item_buyer = Item.find(1)
-    # item_buyer.update( buyer_id: current_user.id)
-    item_buyer.update( buyer_id: 1)
+    item_buyer.update( buyer_id: current_user.id)
+    # item_buyer.update( buyer_id: 1)
 
     # redirect_to "/items"
-    redirect_to action: "index" 
+    redirect_to action: "index"
 
   end
-  
+
 end
