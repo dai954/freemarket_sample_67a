@@ -5,6 +5,7 @@
       支払い方法
     .credit__inner
       .credit__inner__index
+      -# 登録済みの場合は改めて登録させないために条件分岐
     - if @card_user_id == nil
       クレジットカード一覧
       = link_to add_users_path do
