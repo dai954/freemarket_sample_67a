@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  before_action :set_item, except: [:index, :new, :create]
   require "payjp"
   def index
     @item = Item.includes(:images).all.order(updated_at: :desc)
@@ -8,11 +10,22 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.new
   end
 
   def create
+    # @item =Item.new(item_params)
+    # binding.pry
     Item.create!(item_params)
+    # if @item.save
     redirect_to root_path
+      # binding.pry
+      # respond_to do |format|
+      #   format.json
+      # end
+    # else
+      puts "no"
+    # end
   end
 
   def edit
@@ -24,7 +37,17 @@ class ItemsController < ApplicationController
     @image = @item.images
   end
 
-  def update
+  def update    
+  if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @item.destroy
+
     item = Item.find(params[:id])
     item.update(item_params)
   end
@@ -54,7 +77,9 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :indication, :category_id, :brand_id, :buyer_id, :seller_id)
+    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :indication, :category_id, :brand_id, :buyer_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
-# .merge(user_id: current_user.id)
