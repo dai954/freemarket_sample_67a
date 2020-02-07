@@ -1,4 +1,4 @@
 class Buyer < ApplicationRecord
-  has_many :itemds
+  has_many :items
   has_many :users
 end

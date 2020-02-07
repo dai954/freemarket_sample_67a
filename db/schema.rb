@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_065530) do
+ActiveRecord::Schema.define(version: 2020_02_07_035243) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
     t.string "post"
     t.string "city"
-    t.integer "number"
+    t.string "number"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,16 +30,16 @@ ActiveRecord::Schema.define(version: 2020_02_04_065530) do
   end
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "genre"
-    t.text "subgenre"
-    t.text "detail"
+    t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,10 +53,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_065530) do
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "name"
-    t.text "number"
-    t.integer "security"
-    t.text "company"
+    t.string "customer_id"
+    t.string "card_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,33 +73,39 @@ ActiveRecord::Schema.define(version: 2020_02_04_065530) do
     t.string "name"
     t.integer "like"
     t.integer "price"
-    t.integer "status"
-    t.string "brand"
+    t.string "status"
     t.text "descripstion"
     t.string "burden"
     t.string "method"
     t.string "indication"
+    t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "category_id"
-    t.integer "brand_id"
     t.bigint "buyer_id"
     t.bigint "seller_id"
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.bigint "brand_id"
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_items_on_address_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name"
-    t.string "image"
+    t.text "image"
     t.string "tel"
     t.string "sex"
     t.string "birthday"
@@ -115,6 +119,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_065530) do
     t.bigint "buyer_id"
     t.index ["buyer_id"], name: "index_users_on_buyer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["seller_id"], name: "index_users_on_seller_id"
   end
@@ -124,8 +129,12 @@ ActiveRecord::Schema.define(version: 2020_02_04_065530) do
   add_foreign_key "comments", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "addresses"
+  add_foreign_key "items", "brands"
   add_foreign_key "items", "buyers"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "sellers"
+  add_foreign_key "items", "users"
   add_foreign_key "users", "buyers"
   add_foreign_key "users", "sellers"
 end

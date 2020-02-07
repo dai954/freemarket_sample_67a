@@ -7,8 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name,               null: false, unique: true, index: true
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :name
-      t.string :image
+      t.text :image
       t.string :tel
       t.string :sex
       t.string :birthday
@@ -38,7 +37,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
+      # t.references :buyer, foreign_key: true
+      # t.references :seller, foreign_key: true
       t.timestamps null: false
     end
 

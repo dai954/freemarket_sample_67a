@@ -1,2 +1,3 @@
 class BrandController < ApplicationController
+  
 end
