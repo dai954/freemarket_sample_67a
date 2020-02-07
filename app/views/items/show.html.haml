@@ -25,9 +25,9 @@
             %td
               
               %br/
-              = link_to @item.category.genre, "#", class: "delete-decoration"
+              = link_to @item.category.name, "#", class: "delete-decoration"
               %br/
-              = link_to @item.category.detail, "#", class: "delete-decoration"
+              = link_to @item.category.ancestry, "#", class: "delete-decoration"
           %tr
             %th ブランド
             %td
@@ -60,7 +60,7 @@
     -if @item.seller_id.present?
       = render 'layouts/edit'
     -else
-      = link_to "購入画面に進む", purchase_items_path, class: "item-buy-btn"
+      = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
    
     .item-description
       %p.item-description__inner
