@@ -82,12 +82,44 @@
           %h3 新規投稿商品
       .main__box5__box__product-box
         - @item.first(3).each do |item|
-          - item.images.first(3).each do |image|
+          - item.images.first(1).each do |image|
             .main__box5__box__product-box__product
               = link_to "/items/#{item.id}", method: :get do
-                
-    
- 
+                -if item.buyer_id.present?
+                  .main__box5__box__product-box__product__sold
+                    .main__box5__box__product-box__product__sold__inner
+                      SOLD
+                  .main__box5__box__product-box__product__image-box
+                    = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+                  .main__box5__box__product-box__product__show-box
+                    %h3
+                      = item.name
+                    .main__box5__box__product-box__product__show-box__date
+                      %ul
+                        %li
+                          = item.price
+                          円
+                        %li 
+                          %span ★
+                          = item.like
+                      %p (税込)
+                - else 
+                  .main__box5__box__product-box__product__image-box
+                    = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+                  
+                  .main__box5__box__product-box__product__show-box
+                    %h3
+                      = item.name
+                    .main__box5__box__product-box__product__show-box__date
+                      %ul
+                        %li
+                          = item.price
+                          円
+                        %li 
+                          %span ★
+                          = item.like
+                      %p (税込)
+
   .main__box5
     %h2 ピックアップブランド
     .main__box5__box
@@ -96,6 +128,41 @@
           %h3 アーカイバ
       .main__box5__box__product-box
         - @item.first(3).each do |item|
-          - item.images.first(3).each do |image|
+          - item.images.first(1).each do |image|
             .main__box5__box__product-box__product
               = link_to "/items/#{item.id}", method: :get do
+                -if item.buyer_id.present?
+                  .main__box5__box__product-box__product__sold
+                    .main__box5__box__product-box__product__sold__inner
+                      SOLD
+                  .main__box5__box__product-box__product__image-box
+                    = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+                  .main__box5__box__product-box__product__show-box
+                    %h3
+                      = item.name
+                    .main__box5__box__product-box__product__show-box__date
+                      %ul
+                        %li
+                          = item.price
+                          円
+                        %li 
+                          %span ★
+                          = item.like
+                      %p (税込)
+                - else 
+                  .main__box5__box__product-box__product__image-box
+                    = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+                  
+                  .main__box5__box__product-box__product__show-box
+                    %h3
+                      = item.name
+                    .main__box5__box__product-box__product__show-box__date
+                      %ul
+                        %li
+                          = item.price
+                          円
+                        %li 
+                          %span ★
+                          = item.like
+                      %p (税込)
+

@@ -7,14 +7,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :buyer, only: [:index, :show] do
-    collection do
-      get 'done', to: 'buyer#done'
-    end
-  end
-
-
-
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :users, only: [:index, :show, :new, :edit, :update] do
 
@@ -23,6 +15,15 @@ Rails.application.routes.draw do
       get :logout
       get :card
       get :add
+    end
+  end
+
+  resources :credit, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'credit#show'
+      post 'pay', to: 'credit#pay'
+      post 'delete', to: 'credit#delete'
+      post 'purchase', to: 'credit#purchase'
     end
   end
 
