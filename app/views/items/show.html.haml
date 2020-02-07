@@ -45,7 +45,7 @@
           %tr
             %th 配送元地域
             %td
-              = link_to "大阪府", "#", class: "delete-decoration"
+              = link_to @item.address.prefecture, class: "delete-decoration"
           %tr
             %th 発送日の目安
             %td
@@ -56,7 +56,12 @@
         = @item.price
       %span.item-price__tax (税込)
       %span.item-price__shipping-fee 送料込み
-    = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
+
+    -if @item.seller_id.present?
+      = render 'layouts/edit'
+    -else
+      = link_to "購入画面に進む", purchase_items_path, class: "item-buy-btn"
+   
     .item-description
       %p.item-description__inner
         = @item.descripstion
@@ -114,3 +119,6 @@
                 %h3.items-box-name 女の子向け玩具　スタンプセット×2
                 .items-box-num
                   .items-box-price ¥900
+
+
+

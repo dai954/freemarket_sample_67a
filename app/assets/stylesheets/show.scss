@@ -231,3 +231,54 @@
   }
 }
 }
+
+.box{
+  width: 700px;
+  height: 220px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 0;
+
+ 
+ &__inner{
+  margin: 24px 0 24px 0;
+  background-color: #fff;
+  padding: 8px 16px 8px 16px;
+  width: 700px;
+
+  &__edit{
+    margin: 16px 0 16px 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    text-align: center;
+
+
+  }
+   p{
+     display: block;
+     margin-block-start: 1em;
+     margin-block-end: 1em;
+     margin-inline-start: 0px;
+     margin-inline-end: 0px;
+     text-align: center;
+   }
+
+
+
+   &__delete{
+    margin: 16px 0 16px 0;
+    background: #aaa;
+    border:1px solid #aaa;
+    color:#fff;
+    width: 100%;
+    line-height: 48px;
+
+  }
+
+ }
+}
