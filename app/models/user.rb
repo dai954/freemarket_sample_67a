@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :addresses
   belongs_to :buyer, optional: true
   belongs_to :seller,optional: true
+  validates :password, length: { minimum: 8 }  # 「8文字以上」
 end

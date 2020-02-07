@@ -60,7 +60,7 @@
     -if @item.seller_id.present?
       = render 'items/edit'
     -else
-      = link_to "購入画面に進む", purchase_items_path, class: "item-buy-btn"
+      = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
    
     .item-description
       %p.item-description__inner

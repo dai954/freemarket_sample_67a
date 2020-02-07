@@ -551,15 +551,58 @@
       }
     }
     &__3 {
+      height: 100%;
       background-color: white;
       width: calc(100vw - 700px);
-      display:flex;
+      // display:flex;
       border-bottom: solid red;
       padding: 20px;
       font-size: 15px;
 
-        &__1 {
-          border: solid;
+      
+        &__2 {
+          &__1{
+            &__1{
+              &__1 {
+                // position: relative;
+                // margin-top: 100px;
+                &__1{
+                  // display: none;
+                  // z-index: 9999;
+                  // position: fixed;
+                  // top: 0px;
+                  // left: 0px;
+                }
+                // &__1{
+                  
+                //   &__1{
+                //     position: absolute;
+                //     top: 50%;
+                //     left: 0;
+                //     right: 0;
+                //     word-wrap: break-word;
+                //     // text-align: center;
+                //     display: flex;
+                //     justify-content: center;
+                //     align-items: center;
+                //     font-size: 14px;
+                //     line-height: 1.5;
+                //     transform: translate(0, -50%);
+                //     height: 160px;
+                //     background: #EEEEEE;
+                //     border: dashed 1px #C0C0C0;
+                //     cursor: pointer;
+                //     width: 100%;
+                //     display: block;
+                    
+                //   }
+                // }
+              }
+    
+            }
+          }
+          
+
         }
 
     }
