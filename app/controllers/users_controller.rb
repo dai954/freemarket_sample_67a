@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
 
   end
-  
+
   def login
 
   end
@@ -20,6 +20,14 @@ class UsersController < ApplicationController
   end
 
   def card
+    card = Credit.where(user_id: 1).first
+    if card.blank?
+      redirect_to action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
 
   end
   def edit
