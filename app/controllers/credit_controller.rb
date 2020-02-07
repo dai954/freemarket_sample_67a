@@ -63,6 +63,7 @@ class CreditController < ApplicationController
   def purchase
   # 支払い処理
     card = Credit.where(user_id: current_user.id).first
+    # card = Credit.where(user_id: 1).first
     item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -77,5 +78,5 @@ class CreditController < ApplicationController
     item.update(buyer_id: current_user.id)
     redirect_to action: "index" 
   end
-  
+
 end
