@@ -7,22 +7,25 @@
         .field
           .field-label
             = f.label :名前
+            %i 必須
           .field-input
             = f.text_field :name, autofocus: true
         .field
           .field-label
             = f.label :eメール
+            %i 必須
           .field-input
             = f.email_field :email
         .field
           .field-label
-            = f.label :パスワード
-            %i (英数字8文字以上)
+            = f.label :password, "パスワード(英数字8文字以上)"
+            %i 必須
           .field-input
             = f.password_field :password, autocomplete: "off"
         .field
           .field-label
             = f.label :パスワード（確認用）
+            %i 必須
           .field-input
             = f.password_field :password_confirmation, autocomplete: "off"
 
