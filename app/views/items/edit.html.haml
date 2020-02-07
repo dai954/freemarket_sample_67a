@@ -1,0 +1,110 @@
+.exhibition
+  = form_for @item do |f|
+    .exhibition__header
+      .exhibition__header__1
+        = image_tag "icon_brand.png", :size =>'50x50', class: "exhibition__header__1__1"
+      .exhibition__header__2
+        フリマ
+    .exhibition__detail
+      .exhibition__detail__1
+        商品の情報を入力
+      .exhibition__detail__2
+        出品情報
+        .exhibition__detail__2__1
+          必須
+      .exhibition__detail__3
+        最大10枚までアップロードできます
+        = f.label :image_id, "ドラックアンドドロップまたはクリックしてファイルをアップロード" do
+          = f.file_field :name, class: "exhibition__2__3__1"
+      .exhibition__detail__4
+        .exhibition__detail__4__1
+          商品名
+          .exhibition__detail__4__1__1
+            必須
+        .exhibition__detail__4__2
+          = f.text_field :name, placeholder: "商品名(必須40文字まで)",class: "exhibition__detail__4__2__1"
+        .exhibition__detail__4__3
+          商品の説明
+          .exhibition__detail__4__3__1
+            必須
+        .exhibition__detail__4__4
+          = f.text_area :descripstion, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "exhibition__detail__4__4__1"
+      .exhibition__detail__5
+        商品詳細
+      .exhibition__detail__6
+        .exhibition__detail__7
+          カテゴリー
+        .exhibition__detail__8
+          = f.select :category_id, [["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自転車・オートバイ", "12"], ["その他", "14"]], :prompt => "------"
+        .exhibition__detail__9
+          商品の状態
+        .exhibition__detail__10
+          = f.select :status, [["新品、未使用", "1"], ["未使用に近い", "2"], ["目立った傷や汚れなし", "3"], ["やや傷や汚れあり", "4"], ["傷や汚れあり", "5"], ["全体的に状態が悪い", "6"]], :prompt => "------"
+      .exhibition__detail__11
+        発送について
+      .exhibition__detail__12
+        .exhibition__detail__13
+          発送料の負担
+        .exhibition__detail__14
+          = f.select :method, [["送料込み(出品者負担)", "1"], ["着払い(購入者負担)", "2"]], :prompt => "------"
+        .exhibition__detail__15
+          発送元の地域
+        .exhibition__detail__16
+          = f.select :indication, [["北海道", "1"], ["青森県", "2"], ["岩手県", "3"], ["宮城県", "4"], ["秋田県", "5"], ["山形県", "6"], ["福島県", "7"], ["茨城県", "8"], ["栃木県", "9"], ["群馬県", "10"], ["埼玉県", "11"], ["千葉県", "12"], ["東京都", "13"], ["神奈川県", "14"], ["新潟県", "15"], ["富山県", "16"], ["石川県", "17"], ["福井県", "18"], ["山梨県", "19"], ["長野県", "20"], ["岐阜県", "21"], ["静岡県", "22"], ["愛知県", "23"], ["三重県", "24"], ["滋賀県", "25"], ["京都府", "26"], ["大阪府", "27"], ["兵庫県", "28"], ["奈良県", "29"], ["和歌山県", "30"], ["鳥取県", "31"], ["島根県", "32"], ["岡山県", "33"], ["広島県", "34"], ["山口県", "35"], ["徳島県", "36"], ["香川県", "37"], ["愛媛県", "38"], ["高知県", "39"], ["福岡県", "40"], ["佐賀県", "41"], ["長崎県", "42"], ["熊本県", "43"], ["大分県", "44"], ["宮崎県", "45"], ["鹿児島県", "46"], ["沖縄県", "47"], ["未定", "48"]], :prompt => "------"
+        .exhibition__detail__17
+          発送までの日数
+        .exhibition__detail__18
+          = f.select :burden, [["1~2日で発送", "1"], ["2~3日で発送", "2"], ["4~7日で発送", "3"]], :prompt => "------"
+      .exhibition__detail__19
+        販売価格(300~9,999,999)
+      .exhibition__detail__20
+        .exhibition__detail__20__1
+          .exhibition__detail__20__1__1
+            価格
+          .exhibition__detail__20__1__2 
+            .exhibition__detail__20__1__2__1
+              = "¥"
+            .exhibition__detail__20__1__2__2
+              = f.text_field :price, placeholder:"例) 300", class: "exhibition__detail__20__1__2__2__1"
+        .exhibition__detail__20__2
+          .exhibition__detail__20__2__1
+            販売手数料(10%)
+            .exhibition__detail__20__2__1__1
+              = "-"
+        .exhibition__detail__20__3
+          .exhibition__detail__20__3__1
+            販売利益
+          .exhibition__detail__20__3__2
+            = "-"
+      .exhibition__detail__21
+        .exhibition__detail__21__1
+          = link_to "禁止されている出品", "#", class: "exhibition__detail__21__1__1"
+          = ","
+          = link_to "行為", "#", class: "exhibition__detail__21__1__1"
+          = "を必ずご確認ください。"
+        .exhibition__detail__21__2
+          = "またブランド品でシリアルナンバー等がある場合はご記載ください。"
+          = link_to "偽ブランドの販売", "#", class: "exhibition__detail__21__2__1"
+          = "は犯罪であり処罰される可能性があります。"
+        .exhibition__detail__21__3
+          = "また、出品をもちまして"
+          = link_to "加盟店規約", "#", class: "exhibition__detail__21__3__1"
+          = "に同意したことになります。"
+        .exhibition__detail__21__4
+          = f.submit "出品する", class: "exhibition__detail__21__4__1"
+        .exhibition__detail__21__5
+          = link_to "もどる", "", class: "exhibition__detail__21__5__1"
+    .exhibitions
+      .exhibitions__1
+        = link_to "プライバシーポリシー", "", class: "exhibitions__1__1"
+      .exhibitions__2
+        = link_to "メルカリ利用規約", "", class: "exhibitions__2__1"
+      .exhibitions__3
+        = link_to "特定商取引に関する表記", "", class: "exhibitions__3__1"
+    .hoge
+      .hoge__1
+        = image_tag "icon_brand.png", :size =>'50x50', class: "hoge__1__1"
+      .hoge__2
+        フリマ
+      .hoge__3
+        = "© Furima, Inc."

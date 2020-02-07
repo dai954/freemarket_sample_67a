@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def show
@@ -24,9 +25,14 @@ class ItemsController < ApplicationController
   end
 
   def update
+    item = Item.find(params[:id])
+    item.update(item_params)
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path, notice: "商品「#{item.name}」を削除しました。"
   end
 
   def purchase
