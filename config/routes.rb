@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "items#index"
   resources :items do
-    collection do
+    member do
       get :purchase
     end
   end
@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       post 'show', to: 'credit#show'
       post 'pay', to: 'credit#pay'
       post 'delete', to: 'credit#delete'
+      # post 'purchase', to: 'credit#purchase'
+    end
+    member do
       post 'purchase', to: 'credit#purchase'
     end
   end

@@ -59,6 +59,7 @@ class CreditController < ApplicationController
   end
 
   def purchase
+  # 支払い処理
     # card = Credit.where(user_id: current_user.id).first
     card = Credit.where(user_id: 1).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -67,7 +68,16 @@ class CreditController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
-  # redirect_to "/items"
-  redirect_to action: "index" 
+
+  binding.pry
+  # buyer_idを保存
+    item_buyer = Item.find(params[:id])
+    # item_buyer = Item.find(1)
+    # item_buyer.update( buyer_id: current_user.id)
+    item_buyer.update( buyer_id: 1)
+
+    # redirect_to "/items"
+    redirect_to action: "index" 
   end
+  
 end

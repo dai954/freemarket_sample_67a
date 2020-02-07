@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  require "payjp"
   def index
     @item = Item.includes(:images).all.order(updated_at: :desc)
     @item2 = Item.includes(:images).all
@@ -30,8 +30,22 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @item = Item.find(params[:id])
+    # @user = User.find(current_user.id)
+    @user = User.find(2)
+    @address = @item.user.addresses
+    card = Credit.where(user_id: 1).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+      # binding.pry
+    end
     render :layout => "mailer.text"
   end
+
   private
   def item_params
     params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :indication, :category_id, :brand_id, :buyer_id, :seller_id)
