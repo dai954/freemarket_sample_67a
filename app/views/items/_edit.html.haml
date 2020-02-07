@@ -1,0 +1,8 @@
+.box
+ .box__inner
+  = link_to "商品の編集",edit_item_path, class: "box__inner__edit"
+
+  %p.box__inner__center or
+
+
+  = link_to 'この商品を削除する',"#{@item.id}",method: :delete, data:{ confirm: "商品「#{@item.name}」を削除します。よろしいですか?"},class: 'box__inner__delete'
