@@ -24,9 +24,9 @@ document.addEventListener(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             ); //取得したトークンを送信できる状態にします
             $('form').submit();
-            alert("登録が完了しました"); //確認用
+            alert("登録が完了しました");
           } else {
-            alert("カード情報が正しくありません。"); //確認用
+            alert("カード情報が正しくありません。");
           }
         });
       });
