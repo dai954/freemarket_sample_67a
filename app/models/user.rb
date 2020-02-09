@@ -3,10 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  #deviseのデフォルトバリデーションはemail,passwordのみのため、追加しています
+  validates :name, presence: true, length: { maximum: 6 }
   has_many :credits
   has_many :items
   has_many :addresses
   belongs_to :buyer, optional: true
   belongs_to :seller,optional: true
-  validates :password, length: { minimum: 8 }  # 「8文字以上」
 end
