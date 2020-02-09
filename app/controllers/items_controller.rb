@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
   def create
     # @item =Item.new(item_params)
     # binding.pry
-    Item.create!(item_params)
     # if @item.save
     redirect_to root_path
       # binding.pry
@@ -46,10 +45,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    if user_signed_in? && current_user.id == @item.seller_id
-      redirect_to root_path, notice: "商品「#{item.name}」を削除しました。"
+    @item = Item.find(params[:id])
+    if user_signed_in? && current_user.id == @item.seller_id && @item.destroy
+      redirect_to root_path, notice: "商品「#{@item.name}」を削除しました。"
     else
       redirect_to root_path, notice: "削除できません。"
     end
@@ -67,9 +65,9 @@ class ItemsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-      # binding.pry
+      render :layout => "mailer.text"
     end
-    render :layout => "mailer.text"
+    
   end
 
   private
