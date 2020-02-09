@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :destroy]
   require "payjp"
   def index
     @item = Item.includes(:images).all.order(updated_at: :desc)
@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
   def create
     # @item =Item.new(item_params)
     # binding.pry
-    Item.create!(item_params)
     # if @item.save
     redirect_to root_path
       # binding.pry
@@ -46,10 +45,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
-  end
-
-  def destroy
+    @item = Item.find(params[:id])
+    if user_signed_in? && current_user.id == @item.seller_id && @item.destroy
+      redirect_to root_path, notice: "商品「#{@item.name}」を削除しました。"
+    else
+      redirect_to root_path, notice: "削除できません。"
+    end
   end
 
   def purchase

@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :seller, optional: true
   belongs_to :address, optional: true
   has_many :images, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   
   # validates :user, :buyer, :seller, :category, :brand, presence: true
