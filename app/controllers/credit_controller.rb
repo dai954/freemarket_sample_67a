@@ -47,6 +47,7 @@ class CreditController < ApplicationController
 
   def show #Cardのデータpayjpに送り情報を取り出します
     card = Credit.where(user_id: current_user.id).first
+    if card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
