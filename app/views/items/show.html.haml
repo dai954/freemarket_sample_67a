@@ -4,16 +4,29 @@
       = @item.name
     .item-main-content
       .item-photo
-        .item-photo__top
-          = image_tag @image[0].images, class: 'item-photo__top--size'
-          -# %img.item-photo__top--size{alt: "image1", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/99/998db5e98d8d6b86c97f979ca3add6bc_w.jpg"}/
-        .item-photo__bottom
-          = image_tag @image[1].images, class: 'item-photo__bottom--size'
-          = image_tag @image[2].images, class: 'item-photo__bottom--size'
-          = image_tag @image[3].images, class: 'item-photo__bottom--size'
-          -# %img.item-photo__bottom--size{alt: "image2", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/99/998db5e98d8d6b86c97f979ca3add6bc_w.jpg"}/
-          -# %img.item-photo__bottom--size{alt: "image3", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/c2/c2cd16d0a7f926968200d5d809ec9f9e_w.jpg"}/
-          -# %img.item-photo__bottom--size{alt: "image4", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/cd/cde59c4082f5ec8bb6efdb34498be252_w.jpg"}/
+        -if @item.buyer_id.present?
+          .item-photo__top
+            = image_tag @image[0].images, class: 'item-photo__top--size'
+            .item-photo__top--size__sold
+              .item-photo__top--size__sold__inner
+                SOLD
+          .item-photo__bottom
+            = image_tag @image[0].images, class: 'item-photo__bottom--size' 
+            = image_tag @image[1].images, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images, class: 'item-photo__bottom--size'
+        - else 
+          .item-photo__top
+            = image_tag @image[0].images, class: 'item-photo__top--size'
+            -# %img.item-photo__top--size{alt: "image1", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/99/998db5e98d8d6b86c97f979ca3add6bc_w.jpg"}/
+          .item-photo__bottom
+            = image_tag @image[0].images, class: 'item-photo__bottom--size' 
+            = image_tag @image[1].images, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images, class: 'item-photo__bottom--size'
+            -# %img.item-photo__bottom--size{alt: "image2", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/99/998db5e98d8d6b86c97f979ca3add6bc_w.jpg"}/
+            -# %img.item-photo__bottom--size{alt: "image3", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/c2/c2cd16d0a7f926968200d5d809ec9f9e_w.jpg"}/
+            -# %img.item-photo__bottom--size{alt: "image4", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/cd/cde59c4082f5ec8bb6efdb34498be252_w.jpg"}/
       %table.item-detail-table
         %tbody
           %tr.table-record
@@ -26,8 +39,6 @@
               
               %br/
               = link_to @item.category.name, "#", class: "delete-decoration"
-              %br/
-              = link_to @item.category.ancestry, "#", class: "delete-decoration"
           %tr
             %th ブランド
             %td
