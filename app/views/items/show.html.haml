@@ -25,7 +25,7 @@
           %tr.table-record
             %th 出品者
             %td.table-data
-              = link_to "ポパイ", "#", class: "delete-decoration"
+              = link_to @item.user.name, "#", class: "delete-decoration"
           %tr
             %th カテゴリー
             %td
@@ -41,7 +41,8 @@
             %td 
           %tr
             %th 商品の状態
-            %td 新品、未使用
+            %td
+              = @item.status
           %tr
             %th 配送料の負担
             %td
