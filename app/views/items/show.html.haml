@@ -20,9 +20,6 @@
             = image_tag @image[0].images, class: 'item-photo__top--size'
           .item-photo__bottom
             = image_tag @image[0].images, class: 'item-photo__bottom--size' 
-            -# = image_tag @image[1].images, class: 'item-photo__bottom--size'
-            -# = image_tag @image[2].images, class: 'item-photo__bottom--size'
-            -# = image_tag @image[3].images, class: 'item-photo__bottom--size'
       %table.item-detail-table
         %tbody
           %tr.table-record
@@ -66,6 +63,8 @@
 
     -if user_signed_in? && current_user.id == @item.seller_id
       = render 'items/edit'
+    -elsif @item.buyer_id.present?
+      = render 'items/sold'
     -else
       = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
    
