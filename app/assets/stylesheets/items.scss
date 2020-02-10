@@ -343,54 +343,29 @@
           width: 220px;
           display: inline-block;
           position: relative;
-          
-          // a {
-          //   background-color: #fff;
-          //   display: inline-block;
-          //   text-decoration: none;
-          // }
-
-          
-            p{
-              transform: rotate(-45deg);
-              font-size: 28px;
-              margin:-35px 0px 0px -55px;
-              color: #fff;
-              letter-spacing: 2px;
-              font-weight: 600;
-            }
-
-            &__sold{
-              width: 0;
-              height: 0;
-              border-top: 60px solid #ea352d ;
-              border-right: 60px solid transparent;
-              border-bottom: 60px solid transparent;
-              border-left: 60px solid #ea352d ;
-              z-index:100;
-              // position: relative;
-              top:-320px;
-              &__inner{
-                transform: rotate(-45deg);
-                font-size: 28px;
-                margin:-35px 0px 0px -55px;
-                color: #fff;
-                letter-spacing: 2px;
-                font-weight: 600;
-              }
-            }
-          
               &__image-box {
               width: 220px;
               height: 150px;
-
               overflow: hidden;
               margin: 0;
               z-index: auto;
-
-             
+              span {
+                display: inline-block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 60px solid #ea352d ;
+                border-right: 60px solid transparent;
+                border-bottom: 60px solid transparent;
+                border-left: 60px solid #ea352d ;
+                h4 {
+                  transform: rotate(-45deg);
+                  font-size: 28px;
+                  color: #fff;
+                  margin:-35px 0px 0px -55px;
+                }
+              }
                &__image {
-
                 top: 0;
                 left: 0;
                 right: 0;
@@ -399,7 +374,6 @@
                 z-index: auto;
                 height: 150px;
                 object-fit: cover;
-
               }
             }
           &__show-box {
