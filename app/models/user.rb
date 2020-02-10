@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :items
   has_many :addresses
   belongs_to :buyer, optional: true
-  belongs_to :seller,optional: true
+  belongs_to :seller,optional: true,dependent: :destroy
 end
