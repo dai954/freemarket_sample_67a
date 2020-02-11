@@ -88,7 +88,7 @@
                 .main__box5__box__product-box__product__image-box
                   %span
                     %h4 SOLD
-                  = image_tag item.images[0].images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
                 .main__box5__box__product-box__product__show-box
                   %h3
                     = item.name
@@ -104,7 +104,7 @@
 
               - else 
                 .main__box5__box__product-box__product__image-box
-                  = image_tag item.images[0].images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
                 
                 .main__box5__box__product-box__product__show-box
                   %h3
@@ -133,7 +133,7 @@
                 .main__box5__box__product-box__product__image-box
                   %span
                     %h4 SOLD
-                  = image_tag item.images[0].images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
                 .main__box5__box__product-box__product__show-box
                   %h3
                     = item.name
@@ -148,7 +148,7 @@
                     %p (税込)
               - else 
                 .main__box5__box__product-box__product__image-box
-                  = image_tag item.images[0].images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
                 .main__box5__box__product-box__product__show-box
                   %h3
                     = item.name

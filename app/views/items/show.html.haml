@@ -6,23 +6,23 @@
       .item-photo
         -if @item.buyer_id.present?
           .item-photo__top
-            = image_tag @image[0].images, class: 'item-photo__top--size'
+            = image_tag @image[0].images.url, class: 'item-photo__top--size'
             .item-photo__top--size__sold
               .item-photo__top--size__sold__inner
                 SOLD
           .item-photo__bottom
-            = image_tag @image[0].images, class: 'item-photo__bottom--size' 
-            = image_tag @image[1].images, class: 'item-photo__bottom--size'
-            = image_tag @image[2].images, class: 'item-photo__bottom--size'
-            = image_tag @image[3].images, class: 'item-photo__bottom--size'
+            = image_tag @image[0].images.url, class: 'item-photo__bottom--size' 
+            = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images.url, class: 'item-photo__bottom--size'
         - else 
           .item-photo__top
-            = image_tag @image[0].images, class: 'item-photo__top--size'
+            = image_tag @image[0].images.url, class: 'item-photo__top--size'
           .item-photo__bottom
-            = image_tag @image[0].images, class: 'item-photo__bottom--size' 
-            = image_tag @image[1].images, class: 'item-photo__bottom--size'
-            = image_tag @image[2].images, class: 'item-photo__bottom--size'
-            = image_tag @image[3].images, class: 'item-photo__bottom--size'
+            = image_tag @image[0].images.url, class: 'item-photo__bottom--size' 
+            = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images.url, class: 'item-photo__bottom--size'
       %table.item-detail-table
         %tbody
           %tr.table-record
