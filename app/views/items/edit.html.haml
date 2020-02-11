@@ -14,8 +14,12 @@
           必須
       .exhibition__detail__3
         最大10枚までアップロードできます
-        = f.label :image_id, "ドラックアンドドロップまたはクリックしてファイルをアップロード" do
-          = f.file_field :name, class: "exhibition__2__3__1"
+      .exhibition__detail__3__2
+        = f.fields_for :images do |i|
+          .exhibition__detail__3__2__1
+            .exhibition__detail__3__2__1__1
+              .exhibition__detail__3__2__1__1__1{"data-index":"#{i.index}"}
+                = i.file_field :images, class: "exhibition__detail__3__2__1__1__1__1"
       .exhibition__detail__4
         .exhibition__detail__4__1
           商品名
@@ -35,7 +39,7 @@
         .exhibition__detail__7
           カテゴリー
         .exhibition__detail__8
-          -#  = f.select :category_id, [["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"], ["インテリア・住まい・小物", "インテリア・住まい・小物"], ["本・音楽・ゲーム", "本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ", "おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容", "コスメ・香水・美容"], ["家電・スマホ・カメラ", "家電・スマホ・カメラ"], ["スポーツ・レジャー", "スポーツ・レジャー"], ["ハンドメイド", "ハンドメイド"], ["チケット", "チケット"], ["自転車・オートバイ", "自転車・オートバイ"], ["その他", "その他"]], :prompt => "------"
+          = f.select :category_id, [["レディース", "1"], ["メンズ", "200"], ["ベビー・キッズ", "346"], ["インテリア・住まい・小物", "481"], ["本・音楽・ゲーム", "625"], ["おもちゃ・ホビー・グッズ", "685"], ["コスメ・香水・美容", "798"], ["家電・スマホ・カメラ", "898"], ["スポーツ・レジャー", "984"], ["ハンドメイド", "1093"], ["チケット", "1147"], ["自転車・オートバイ", "1207"], ["その他", "1270"]], :prompt => "------"
         .exhibition__detail__9
           商品の状態
         .exhibition__detail__10
@@ -91,7 +95,7 @@
           = link_to "加盟店規約", "#", class: "exhibition__detail__21__3__1"
           = "に同意したことになります。"
         .exhibition__detail__21__4
-          = f.submit "出品する", class: "exhibition__detail__21__4__1"
+          = f.submit "編集する", class: "exhibition__detail__21__4__1"
         .exhibition__detail__21__5
           = link_to "もどる", "", class: "exhibition__detail__21__5__1"
     .exhibitions
