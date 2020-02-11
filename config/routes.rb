@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root "items#index"
   resources :items do
+    resources :comments, only: :create
+    collection do
+      get :edit
+    end
     member do
       get :purchase
-    end
+   end
   end
 
   resources :users, only: [:index, :show, :new, :edit, :update] do

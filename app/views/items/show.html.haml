@@ -20,6 +20,9 @@
             = image_tag @image[0].images, class: 'item-photo__top--size'
           .item-photo__bottom
             = image_tag @image[0].images, class: 'item-photo__bottom--size' 
+            = image_tag @image[1].images, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images, class: 'item-photo__bottom--size'
       %table.item-detail-table
         %tbody
           %tr.table-record
@@ -84,10 +87,16 @@
     .item-detail-message
       .message-container
         .message-content
-          = form_with(url: "#", local: true, method: :post, class: "message-content__form") do |form|
+          = form_with(local: true, method: :post, class: "message-content__form") do |form|
             = form.text_area :body, type: "text", class: "message-content__form--textarea"
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
             = form.submit "コメントする" ,type: "submit", class: "message-content__form--submit"
+    .item-comment
+      <コメント一覧>
+      - if @comments
+        - @comments.each do |comment|
+          = link_to comment.user.name, "/users/#{comment.user_id}"
+          = comment.text
 
     %ul.nav-item
       .nav-item__link-prev
