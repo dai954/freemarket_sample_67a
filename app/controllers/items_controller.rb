@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @image = @item.images
   end
 
   def show
