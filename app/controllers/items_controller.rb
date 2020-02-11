@@ -14,17 +14,15 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # @item =Item.new(item_params)
-    # binding.pry
-    # if @item.save
-    redirect_to root_path
-      # binding.pry
-      # respond_to do |format|
-      #   format.json
-      # end
-    # else
-      puts "no"
-    # end
+    @item =Item.new(item_params)
+    if @item.save
+      # @item.update(seller_id: current_user.id)
+      redirect_to root_path
+    else
+      @item.images.new
+      render action: :new
+      # redirect_to new_item_path
+    end
   end
 
   def edit
@@ -77,7 +75,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :indication, :category_id, :brand_id, :buyer_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
+    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :area_id, :category_id, :brand_id, :seller_id, :buyer_id, images_attributes: [:images, :_destroy, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])

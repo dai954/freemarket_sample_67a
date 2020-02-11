@@ -665,11 +665,16 @@
     }
     &__8 {
       display: flex;
-      justify-content: flex-end;
+      // justify-content: flex-end;
+      flex-direction: column;
+      margin-left: 350px;
       padding: 0 80px 30px 0;
       #item_category_id {
         height: 50px;
         width: 340px;
+      }
+      &__1{
+        margin-left: -350px;
       }
     }
     &__9 {
@@ -847,6 +852,8 @@
         &__1 {
           text-decoration: none;
           color: white;
+          background-color: red;
+          border: red;
         }
       }
       &__5 {
