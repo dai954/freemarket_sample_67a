@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_035243) do
+ActiveRecord::Schema.define(version: 2020_02_09_175354) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2020_02_07_035243) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "name", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_035243) do
     t.text "descripstion"
     t.string "burden"
     t.string "method"
-    t.string "indication"
+    t.integer "area_id"
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
