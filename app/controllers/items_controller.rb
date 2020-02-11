@@ -38,8 +38,10 @@ class ItemsController < ApplicationController
 
   def update    
   if @item.update(item_params)
-      redirect_to root_path
+      flash[:notice] = "商品「#{@item.name}」を編集しました。"
+      redirect_to
     else
+      flash[:notice] = "必須項目が空欄です。"
       render :edit
     end
   end
