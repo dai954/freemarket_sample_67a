@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :descripstion
       t.string :burden
       t.string :method
-      t.string :indication
+      t.integer :area_id
       t.string :size
       
       

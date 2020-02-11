@@ -4,36 +4,51 @@
       = @item.name
     .item-main-content
       .item-photo
-        .item-photo__top
-          %img.item-photo__top--size{alt: "image1", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/99/998db5e98d8d6b86c97f979ca3add6bc_w.jpg"}/
-        .item-photo__bottom
-          %img.item-photo__bottom--size{alt: "image2", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/99/998db5e98d8d6b86c97f979ca3add6bc_w.jpg"}/
-          %img.item-photo__bottom--size{alt: "image3", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/c2/c2cd16d0a7f926968200d5d809ec9f9e_w.jpg"}/
-          %img.item-photo__bottom--size{alt: "image4", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/cd/cde59c4082f5ec8bb6efdb34498be252_w.jpg"}/
+        -if @item.buyer_id.present?
+          .item-photo__top
+            = image_tag @image[0].images.url, class: 'item-photo__top--size'
+            .item-photo__top--size__sold
+              .item-photo__top--size__sold__inner
+                SOLD
+          .item-photo__bottom
+            = image_tag @image[0].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images.url, class: 'item-photo__bottom--size'
+        - else
+          .item-photo__top
+            = image_tag @image[0].images.url, class: 'item-photo__top--size'
+          .item-photo__bottom
+            = image_tag @image[0].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
+            = image_tag @image[3].images.url, class: 'item-photo__bottom--size'
       %table.item-detail-table
         %tbody
           %tr.table-record
             %th 出品者
             %td.table-data
-              = link_to "ポパイ", "#", class: "delete-decoration"
+              = link_to @item.user.name, "#", class: "delete-decoration"
           %tr
             %th カテゴリー
             %td
-              = @item.category
+
               %br/
-              = link_to "小物", "#", class: "delete-decoration"
-              %br/
-              = link_to "コインケース", "#", class: "delete-decoration"
+              スポーツ
+              -# = link_to @item.category.name, "#", class: "delete-decoration"
           %tr
             %th ブランド
             %td
-              = @item.brand
+              NIKE
+              = icon('fas', 'check')
+              -# = @item.brand.name
           %tr
             %th 商品のサイズ
-            %td 
+            %td
           %tr
             %th 商品の状態
-            %td 新品、未使用
+            %td
+              = @item.status
           %tr
             %th 配送料の負担
             %td
@@ -41,18 +56,25 @@
           %tr
             %th 配送元地域
             %td
-              = link_to "大阪府", "#", class: "delete-decoration"
+              -# = link_to @item.address.prefecture, class: "delete-decoration"
           %tr
             %th 発送日の目安
             %td
-              = @item.indication
+              = @item.area_id
     .item-price
       %span.item-price__bold
         ¥
         = @item.price
       %span.item-price__tax (税込)
       %span.item-price__shipping-fee 送料込み
-    = link_to "購入画面に進む", "#", class: "item-buy-btn"
+
+    -if user_signed_in? && current_user.id == @item.seller_id
+      = render 'items/edit'
+    -elsif @item.buyer_id.present?
+      = render 'items/sold'
+    -else
+      = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
+
     .item-description
       %p.item-description__inner
         = @item.descripstion
@@ -68,10 +90,16 @@
     .item-detail-message
       .message-container
         .message-content
-          = form_with(url: "#", local: true, method: :post, class: "message-content__form") do |form|
+          = form_with(local: true, method: :post, class: "message-content__form") do |form|
             = form.text_area :body, type: "text", class: "message-content__form--textarea"
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
             = form.submit "コメントする" ,type: "submit", class: "message-content__form--submit"
+    .item-comment
+      <コメント一覧>
+      - if @comments
+        - @comments.each do |comment|
+          = link_to comment.user.name, "/users/#{comment.user_id}"
+          = comment.text
 
     %ul.nav-item
       .nav-item__link-prev

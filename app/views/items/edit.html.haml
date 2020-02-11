@@ -1,0 +1,137 @@
+.exhibition
+  = form_for @item do |f|
+    - if @item.errors.any?
+      = "入力した内容にエラーが#{@item.errors.count}件あります"
+      - @item.errors.full_messages.each do |message|
+        = message
+    .exhibition__header
+      .exhibition__header__1
+        = image_tag "icon_brand.png", :size =>'50x50', class: "exhibition__header__1__1"
+      .exhibition__header__2
+        フリマ
+    .exhibition__detail
+      .exhibition__detail__1
+        商品の情報を入力
+      .exhibition__detail__2
+        出品情報
+        .exhibition__detail__2__1
+          必須
+      .exhibition__detail__3
+        .exhibition__detail__3__1
+          最大10枚までアップロードできます
+        .exhibition__detail__3__2
+          = f.fields_for :images do |i|
+            .exhibition__detail__3__2__1
+              .exhibition__detail__3__2__1__1
+                .exhibition__detail__3__2__1__1__1{"data-index":"#{i.index}"}
+                  -# = i.label :name, "", class: "exhibition__detail__3__2__1__1"
+                  -# %label{class: "exhibition__detail__3__2__1__1__1__1"}
+                  -#   %pre{class: "exhibition__detail__3__2__1__1__1__1__1"}
+                  -#     :preserve
+                  -#     ドラックアンドドロップ
+                  -#     またはクリックしてファイルをアップロード
+                  = i.file_field :images, class: "exhibition__detail__3__2__1__1__1__1"
+                  
+                    
+                  -# .exhibition__detail__3__2__2
+                  -#   = "削除"
+                  - if @item.persisted?
+                    = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                - if @item.persisted?
+                  -# .exhibition__detail__3__3{data-index="@item.images.count %>"}
+                  -# = file_field_tag :images, name: "item[images_attributes][#{@item.i.count}][image]", class: 'exhibition__detail__3__3__1'
+                  -# .exhibition__detail__3__2__2
+                  -#   = "削除"
+      .exhibition__detail__4
+        .exhibition__detail__4__1
+          商品名
+          .exhibition__detail__4__1__1
+            必須
+        .exhibition__detail__4__2
+          = f.text_field :name, placeholder: "商品名(必須40文字まで)",class: "exhibition__detail__4__2__1"
+        .exhibition__detail__4__3
+          商品の説明
+          .exhibition__detail__4__3__1
+            必須
+        .exhibition__detail__4__4
+          = f.text_area :descripstion, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "exhibition__detail__4__4__1"
+      .exhibition__detail__5
+        商品詳細
+      .exhibition__detail__6
+        .exhibition__detail__7
+          カテゴリー
+        .exhibition__detail__8
+          = f.select :category_id, [["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"], ["インテリア・住まい・小物", "インテリア・住まい・小物"], ["本・音楽・ゲーム", "本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ", "おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容", "コスメ・香水・美容"], ["家電・スマホ・カメラ", "家電・スマホ・カメラ"], ["スポーツ・レジャー", "スポーツ・レジャー"], ["ハンドメイド", "ハンドメイド"], ["チケット", "チケット"], ["自転車・オートバイ", "自転車・オートバイ"], ["その他", "その他"]], :prompt => "------"
+          .exhibition__detail__8__1
+        .exhibition__detail__9
+          商品の状態
+        .exhibition__detail__10
+          = f.select :status, [ ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れなし", "やや傷や汚れなし"], ["傷や汚れなし", "傷や汚れなし"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"] ], :prompt => "------"
+      .exhibition__detail__11
+        発送について
+      .exhibition__detail__12
+        .exhibition__detail__13
+          発送料の負担
+        .exhibition__detail__14
+          = f.select :method, [ ["送料込み(出品者負担)","送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"] ], :prompt => "------"
+        .exhibition__detail__15
+          発送元の地域
+        .exhibition__detail__16
+          -# = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}
+        .exhibition__detail__17
+          発送までの日数
+        .exhibition__detail__18
+          = f.select :burden, [ ["１〜２日で発送","１〜２日で発送"], ["２〜３日で発送", "２〜３日で発送"], ["４〜７日で発送", "４〜７日で発送"] ], :prompt => "------"
+      .exhibition__detail__19
+        販売価格(300~9,999,999)
+      .exhibition__detail__20
+        .exhibition__detail__20__1
+          .exhibition__detail__20__1__1
+            価格
+          .exhibition__detail__20__1__2 
+            .exhibition__detail__20__1__2__1
+              = "¥"
+            .exhibition__detail__20__1__2__2
+              = f.text_field :price, placeholder:"例) 300", class: "exhibition__detail__20__1__2__2__1"
+        .exhibition__detail__20__2
+          .exhibition__detail__20__2__1
+            販売手数料(10%)
+            .exhibition__detail__20__2__1__1
+              = "-"
+        .exhibition__detail__20__3
+          .exhibition__detail__20__3__1
+            販売利益
+          .exhibition__detail__20__3__2
+            = "-"
+      .exhibition__detail__21
+        .exhibition__detail__21__1
+          = link_to "禁止されている出品", "#", class: "exhibition__detail__21__1__1"
+          = ","
+          = link_to "行為", "#", class: "exhibition__detail__21__1__1"
+          = "を必ずご確認ください。"
+        .exhibition__detail__21__2
+          = "またブランド品でシリアルナンバー等がある場合はご記載ください。"
+          = link_to "偽ブランドの販売", "#", class: "exhibition__detail__21__2__1"
+          = "は犯罪であり処罰される可能性があります。"
+        .exhibition__detail__21__3
+          = "また、出品をもちまして"
+          = link_to "加盟店規約", "#", class: "exhibition__detail__21__3__1"
+          = "に同意したことになります。"
+        .exhibition__detail__21__4
+          = f.submit "編集する", class: "exhibition__detail__21__4__1"
+        .exhibition__detail__21__5
+          = link_to "もどる", "", class: "exhibition__detail__21__5__1"
+    .exhibitions
+      .exhibitions__1
+        = link_to "プライバシーポリシー", "", class: "exhibitions__1__1"
+      .exhibitions__2
+        = link_to "メルカリ利用規約", "", class: "exhibitions__2__1"
+      .exhibitions__3
+        = link_to "特定商取引に関する表記", "", class: "exhibitions__3__1"
+    .hoge
+      .hoge__1
+        = image_tag "icon_brand.png", :size =>'50x50', class: "hoge__1__1"
+      .hoge__2
+        フリマ
+      .hoge__3
+        = "© Furima, Inc."

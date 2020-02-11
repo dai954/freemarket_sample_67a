@@ -13,7 +13,7 @@
           = link_to "https://play.google.com/store/apps?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" do
             = image_tag 'logo/google-play-badge.png', alt: 'Google Play で手に入れよう', height: '', width: '160px'
   .main__box2
-    %h2 FURIMが選ばれる3つの理由
+    %h2 FURIMAが選ばれる3つの理由
     .main__box2__box
       .main__box2__box__box1
         .main__box2__box__box1__image1
@@ -82,11 +82,13 @@
           %h3 新規投稿商品
       .main__box5__box__product-box
         - @item.first(3).each do |item|
-          - item.images.first(3).each do |image|
-            .main__box5__box__product-box__product
-              = link_to "/items/#{item.id}", method: :get do
+          .main__box5__box__product-box__product
+            = link_to "/items/#{item.id}", method: :get do
+              -if item.buyer_id.present?
                 .main__box5__box__product-box__product__image-box
-                  = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                  %span
+                    %h4 SOLD
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
                 .main__box5__box__product-box__product__show-box
                   %h3
                     = item.name
@@ -99,32 +101,24 @@
                         %span ★
                         = item.like
                     %p (税込)
-        -# .main__box5__box__product-box__product
-        -#   = link_to root_path do
-        -#     .main__box5__box__product-box__product__image-box
-        -#       = image_tag 'pict/currypan-01.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-        -#     .main__box5__box__product-box__product__show-box
-        -#       %h3 product2
-        -#       .main__box5__box__product-box__product__show-box__date
-        -#         %ul
-        -#           %li 20000円
-        -#           %li 
-        -#             %span ★
-        -#             0
-        -#         %p (税込)
-        -# .main__box5__box__product-box__product
-        -#   = link_to root_path do
-        -#     .main__box5__box__product-box__product__image-box
-        -#       = image_tag 'pict/unnamed.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-        -#     .main__box5__box__product-box__product__show-box
-        -#       %h3 product1
-        -#       .main__box5__box__product-box__product__show-box__date
-        -#         %ul
-        -#           %li 10000円
-        -#           %li 
-        -#             %span ★
-        -#             0
-        -#         %p (税込)
+
+              - else 
+                .main__box5__box__product-box__product__image-box
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+                
+                .main__box5__box__product-box__product__show-box
+                  %h3
+                    = item.name
+                  .main__box5__box__product-box__product__show-box__date
+                    %ul
+                      %li
+                        = item.price
+                        円
+                      %li 
+                        %span ★
+                        = item.like
+                    %p (税込)
+
   .main__box5
     %h2 ピックアップブランド
     .main__box5__box
@@ -132,12 +126,14 @@
         = link_to root_path do
           %h3 アーカイバ
       .main__box5__box__product-box
-        - @item2.first(3).each do |item|
-          - item.images.first(3).each do |image|
-            .main__box5__box__product-box__product
-              = link_to "/items/#{item.id}", method: :get do
+        - @item.first(3).each do |item|
+          .main__box5__box__product-box__product
+            = link_to "/items/#{item.id}", method: :get do
+              -if item.buyer_id.present?
                 .main__box5__box__product-box__product__image-box
-                  = image_tag image.images, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                  %span
+                    %h4 SOLD
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
                 .main__box5__box__product-box__product__show-box
                   %h3
                     = item.name
@@ -150,29 +146,18 @@
                         %span ★
                         = item.like
                     %p (税込)
-        -# .main__box5__box__product-box__product
-        -#   = link_to root_path do
-        -#     .main__box5__box__product-box__product__image-box
-        -#       = image_tag 'pict/currypan-01.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-        -#     .main__box5__box__product-box__product__show-box
-        -#       %h3 product2
-        -#       .main__box5__box__product-box__product__show-box__date
-        -#         %ul
-        -#           %li 20000円
-        -#           %li 
-        -#             %span ★
-        -#             0
-        -#         %p (税込)
-        -# .main__box5__box__product-box__product
-        -#   = link_to root_path do
-        -#     .main__box5__box__product-box__product__image-box
-        -#       = image_tag 'pict/unnamed.png', height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
-        -#     .main__box5__box__product-box__product__show-box
-        -#       %h3 product1
-        -#       .main__box5__box__product-box__product__show-box__date
-        -#         %ul
-        -#           %li 10000円
-        -#           %li 
-        -#             %span ★
-        -#             0
-        -#         %p (税込)
+              - else 
+                .main__box5__box__product-box__product__image-box
+                  = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+                .main__box5__box__product-box__product__show-box
+                  %h3
+                    = item.name
+                  .main__box5__box__product-box__product__show-box__date
+                    %ul
+                      %li
+                        = item.price
+                        円
+                      %li 
+                        %span ★
+                        = item.like
+                    %p (税込)

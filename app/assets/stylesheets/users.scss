@@ -291,6 +291,13 @@
       padding: 50px 30px 0px 0px;
     }
   }
+  .submit{
+    height: 40px;
+    width: 200px;
+    background-color: blue;
+    color: white;
+    border-radius: 100px;
+  }
   &__card{
     padding: 30px 100px;
     display: flex;
@@ -412,6 +419,7 @@
         background-color: red;
         color: white;
         line-height: 70px;
+        width: 200px;
       }
     }
   }
@@ -492,18 +500,18 @@
         margin-top: 30px;
         .field {
           margin-bottom: 10px;
-      
+
           .field-label {
             padding: 10px 0;
             letter-spacing: 1px;
             font-size: 14px;
             font-weight: 200;
-      
+
             i {
               font-size: 11px;
             }
           }
-      
+
           .field-input {
             input {
               width: 100%;
@@ -512,7 +520,7 @@
             }
           }
         }
-      
+
         .btn {
           display: inline-block;
           height: 50px;
@@ -524,14 +532,14 @@
           border: none;
           border-radius: 2px;
         }
-      
+
         input[type='submit'] {
           float: left;
           margin-top: 20px;
           color: #fff;
           background-color: #38aef0;
         }
-      
+
         .field-label {
           .field_with_errors {
             display: inline-block;
@@ -539,11 +547,11 @@
             font-weight: 400;
           }
         }
-      
+
         .field-input {
           .field_with_errors {
             position: relative;
-      
+
             &:after {
               content: '';
               display: block;
@@ -557,7 +565,7 @@
           }
         }
       }
-      
+
       }
       &__pass{
         font-size: 30px;
@@ -708,6 +716,10 @@
       }
       i{
         font-size: 14px;
+        background-color: red;
+        border: 1px solid;
+        color: white;
+        padding: 1px 3px;
       }
       .btn {
         background-color: blue;
@@ -752,19 +764,19 @@
     padding: 20px 30px;
     border: 1px solid #ddd;
     border-radius: 2px;
-  
+
     h2 {
       margin-bottom: 10px;
       color: #d65f4c;
       font-size: 14px;
     }
-  
+
     ul {
       margin: 0;
       padding-left: 17px;
       list-style: square;
     }
-  
+
     li {
       margin: 0;
       padding: 0;
@@ -773,3 +785,4 @@
   }
 
 }
+

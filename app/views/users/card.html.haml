@@ -5,11 +5,23 @@
       支払い方法
     .credit__inner
       .credit__inner__index
-        クレジットカード一覧
-    = link_to add_users_path do
-      .credit__inner__button
-        = icon("fas", "credit-card")
-        クレジットカードを追加する
-      .credit__inner__bottom
-        = link_to "#" do
-          支払い方法について >
+      -# 登録済みの場合は改めて登録させないために条件分岐
+    - if @card_user_id == nil
+      クレジットカード一覧
+      = link_to add_users_path do
+        .credit__inner__button
+          = icon("fas", "credit-card")
+          クレジットカードを追加する
+        .credit__inner__bottom
+          = link_to "#" do
+            支払い方法について >
+    - else
+      %label 登録クレジットカード情報
+      %br
+      = "**** **** **** " + @default_card_information.last4
+      %br
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+      = form_with(url: delete_credit_index_path, local: true, method: :post) do |f|
+        = f.submit "削除する", class: "submit"
