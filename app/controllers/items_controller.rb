@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item =Item.new(item_params)
     if @item.save
-      # @item.update(seller_id: current_user.id)
+      @item.update(seller_id: current_user.id)
       redirect_to root_path
     else
       @item.images.new
@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :area_id, :category_id, :brand_id, :seller_id, :buyer_id, images_attributes: [:images, :_destroy, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
+    params.require(:item).permit(:name, :like, :price, :status, :brand, :descripstion, :burden, :method, :area_id, :category_id, :brand_id, :seller_id, :buyer_id, images_attributes: [:images, :_destroy, :id]).merge(user_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])
