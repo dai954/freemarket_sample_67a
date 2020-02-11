@@ -4,6 +4,12 @@
 
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.notification{
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+
 .fixed_btn{
   h1 {
     color: #fff;
@@ -25,6 +31,7 @@
 .header {
   padding: 0 60px;
   width: 100%;
+
   &__box {
     padding: 15px 0 0 ;
     max-width: 1040px;
@@ -342,42 +349,30 @@
         &__product {
           width: 220px;
           display: inline-block;
-         
-         &__sold{
-          width: 0;
-          height: 0;
-          border-top: 60px solid #ea352d ;
-          border-right: 60px solid transparent;
-          border-bottom: 60px solid transparent;
-          border-left: 60px solid #ea352d ;
-          z-index:100;
-          top:-320px;
-          &__inner{
-              transform: rotate(-45deg);
-              font-size: 28px;
-              margin:-35px 0px 0px -55px;
-              color: #fff;
-              letter-spacing: 2px;
-              font-weight: 600;
-            }
-          }
-          
-          a {
-            background-color: #fff;
-            display: inline-block;
-            text-decoration: none;
-          }
-            &__image-box {
+          position: relative;
+              &__image-box {
               width: 220px;
               height: 150px;
-
               overflow: hidden;
               margin: 0;
               z-index: auto;
-
-             
-              &__image {
-
+              span {
+                display: inline-block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 60px solid #ea352d ;
+                border-right: 60px solid transparent;
+                border-bottom: 60px solid transparent;
+                border-left: 60px solid #ea352d ;
+                h4 {
+                  transform: rotate(-45deg);
+                  font-size: 28px;
+                  color: #fff;
+                  margin:-35px 0px 0px -55px;
+                }
+              }
+               &__image {
                 top: 0;
                 left: 0;
                 right: 0;
@@ -386,10 +381,9 @@
                 z-index: auto;
                 height: 150px;
                 object-fit: cover;
-
               }
             }
-            &__show-box {
+          &__show-box {
               background-color: white;
               color: #333;
               padding: 16px;
@@ -399,7 +393,7 @@
                 font-size: 16px;
                 text-align: left;
               }
-              &__date {
+           &__date {
                 font-size: 16px;
                 ul {
                   display: flex;

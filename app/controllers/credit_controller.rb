@@ -5,8 +5,8 @@ class CreditController < ApplicationController
   end
 
   def new
-    # card = Credit.where(user_id: current_user.id)
-    card = Credit.where(user_id: 1)
+    card = Credit.where(user_id: current_user.id)
+    # card = Credit.where(user_id: 1)
     redirect_to action: "show" if card.exists?
     redirect_to "/users/add" unless card.exists?
   end
@@ -20,11 +20,10 @@ class CreditController < ApplicationController
       # description: '登録テスト', #なくてもOK
       # email: current_user.email, #なくてもOK
       card: params['payjp-token'],
-      # metadata: {user_id: current_user.id}
-      metadata: {user_id: 1}
+      metadata: {user_id: current_user.id}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
-      # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      @card = Credit.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      # @card = Credit.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         # redirect_to "/items"
         redirect_to action: "show"
@@ -35,8 +34,7 @@ class CreditController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    # card = Credit.where(user_id: current_user.id).first
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -44,13 +42,11 @@ class CreditController < ApplicationController
       customer.delete
       card.delete
     end
-      # redirect_to action: "new"
       render delete_credit_index_path
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    # card = Credit.where(user_id: current_user.id).first
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new"
     else
@@ -62,25 +58,20 @@ class CreditController < ApplicationController
 
   def purchase
   # 支払い処理
-    # card = Credit.where(user_id: current_user.id).first
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
+    item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
+    :amount => item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
-
-
   # buyer_idを保存
-    item_buyer = Item.find(params[:id])
-    # item_buyer = Item.find(1)
-    # item_buyer.update( buyer_id: current_user.id)
-    item_buyer.update( buyer_id: 1)
-
-    # redirect_to "/items"
+    user = User.find(current_user.id)
+    item_buyer = Buyer.new
+    item_buyer.update(name: user.name)
+    item.update(buyer_id: current_user.id)
     redirect_to action: "index" 
-
   end
-  
+
 end

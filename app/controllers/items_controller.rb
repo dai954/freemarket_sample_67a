@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :destroy]
   require "payjp"
   def index
     @item = Item.includes(:images).all.order(updated_at: :desc)
@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @image = @item.images
   end
 
   def show
@@ -36,40 +37,40 @@ class ItemsController < ApplicationController
 
   def update    
   if @item.update(item_params)
-      redirect_to root_path
+      flash[:notice] = "商品「#{@item.name}」を編集しました。"
+      redirect_to
     else
+      flash[:notice] = "必須項目が空欄です。"
       render :edit
     end
   end
 
   def destroy
-    @item.destroy
-
-    item = Item.find(params[:id])
-    item.update(item_params)
-  end
-
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path, notice: "商品「#{item.name}」を削除しました。"
+    @item = Item.find(params[:id])
+    if user_signed_in? && current_user.id == @item.seller_id && @item.destroy
+      flash[:notice] = "商品「#{@item.name}」を削除しました。"
+      redirect_to root_path  
+    else
+      flash[:notice] = "削除できません。"
+      redirect_to root_path
+    end
   end
 
   def purchase
     @item = Item.find(params[:id])
-    # @user = User.find(current_user.id)
-    @user = User.find(2)
+    @user = User.find(current_user.id)
+    # @user = User.find(2)
     @address = @item.user.addresses
-    card = Credit.where(user_id: 1).first
+    card = Credit.where(user_id: current_user.id).first
+    # card = Credit.where(user_id: 1).first
     if card.blank?
-      redirect_to action: "new" 
+      redirect_to "/users/add"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-      # binding.pry
+      render :layout => "mailer.text"
     end
-    render :layout => "mailer.text"
   end
 
   private
