@@ -20,28 +20,13 @@
         .exhibition__detail__3__1
           最大10枚までアップロードできます
         .exhibition__detail__3__2
+          -@item.images.all.order(id: "ASC").each do |image|
+            = image_tag image.images.url, height: '150px', width: '220px'
           = f.fields_for :images do |i|
             .exhibition__detail__3__2__1
               .exhibition__detail__3__2__1__1
                 .exhibition__detail__3__2__1__1__1{"data-index":"#{i.index}"}
-                  -# = i.label :name, "", class: "exhibition__detail__3__2__1__1"
-                  -# %label{class: "exhibition__detail__3__2__1__1__1__1"}
-                  -#   %pre{class: "exhibition__detail__3__2__1__1__1__1__1"}
-                  -#     :preserve
-                  -#     ドラックアンドドロップ
-                  -#     またはクリックしてファイルをアップロード
                   = i.file_field :images, class: "exhibition__detail__3__2__1__1__1__1"
-                  
-                    
-                  -# .exhibition__detail__3__2__2
-                  -#   = "削除"
-                  - if @item.persisted?
-                    = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
-                - if @item.persisted?
-                  -# .exhibition__detail__3__3{data-index="@item.images.count %>"}
-                  -# = file_field_tag :images, name: "item[images_attributes][#{@item.i.count}][image]", class: 'exhibition__detail__3__3__1'
-                  -# .exhibition__detail__3__2__2
-                  -#   = "削除"
       .exhibition__detail__4
         .exhibition__detail__4__1
           商品名
@@ -61,7 +46,7 @@
         .exhibition__detail__7
           カテゴリー
         .exhibition__detail__8
-          = f.select :category_id, [["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"], ["インテリア・住まい・小物", "インテリア・住まい・小物"], ["本・音楽・ゲーム", "本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ", "おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容", "コスメ・香水・美容"], ["家電・スマホ・カメラ", "家電・スマホ・カメラ"], ["スポーツ・レジャー", "スポーツ・レジャー"], ["ハンドメイド", "ハンドメイド"], ["チケット", "チケット"], ["自転車・オートバイ", "自転車・オートバイ"], ["その他", "その他"]], :prompt => "------"
+          = f.select :category_id, [["レディース", "1"], ["メンズ", "200"], ["ベビー・キッズ", "346"], ["インテリア・住まい・小物", "481"], ["本・音楽・ゲーム", "625"], ["おもちゃ・ホビー・グッズ", "685"], ["コスメ・香水・美容", "798"], ["家電・スマホ・カメラ", "898"], ["スポーツ・レジャー", "984"], ["ハンドメイド", "1093"], ["チケット", "1147"], ["自転車・オートバイ", "1207"], ["その他", "1270"]], :prompt => "------"
           .exhibition__detail__8__1
         .exhibition__detail__9
           商品の状態
@@ -77,7 +62,7 @@
         .exhibition__detail__15
           発送元の地域
         .exhibition__detail__16
-          -# = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}
+          = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}
         .exhibition__detail__17
           発送までの日数
         .exhibition__detail__18
