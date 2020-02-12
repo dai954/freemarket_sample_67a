@@ -53,11 +53,11 @@
           %tr
             %th 配送元地域
             %td
-              = link_to @item.address.prefecture, class: "delete-decoration"
+              = link_to @item.area.name, class: "delete-decoration"
           %tr
             %th 発送日の目安
             %td
-              = @item.indication
+              = @item.burden
     .item-price
       %span.item-price__bold
         ¥
