@@ -25,8 +25,8 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-# credential.yml用のシンボリックリンクを追加
-set :linked_files, %w{ config/credential.yml.enc }
+# credentials.yml用のシンボリックリンクを追加
+set :linked_files, %w{ config/credentials.yml.enc }
 
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
@@ -36,13 +36,13 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload credential.yml.enc'
+  desc 'upload credentials.yml.enc'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('config/credential.yml.enc', "#{shared_path}/config/credential.yml.enc")
+      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
     end
   end
   before :starting, 'deploy:upload'
