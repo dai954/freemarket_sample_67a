@@ -70,7 +70,8 @@ class CreditController < ApplicationController
     user = User.find(current_user.id)
     item_buyer = Buyer.new
     item_buyer.update(name: user.name)
-    item.update(buyer_id: current_user.id)
+    item_buyer_id = item_buyer.id
+    item.update(buyer_id: item_buyer_id)
     redirect_to action: "index" 
   end
 
