@@ -2,6 +2,7 @@ require 'rails_helper'
 describe Credit do
   describe '#pay' do
     it "is valid with a user_id, customer_id, card_id" do
+      user = FactoryBot.create(:user)
       credit = FactoryBot.build(:credit)
       expect(credit).to be_valid
     end

@@ -1,4 +1,4 @@
 class Credit < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
   validates :user_id, :customer_id, :card_id, presence: true
 end
