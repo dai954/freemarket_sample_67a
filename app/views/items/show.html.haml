@@ -11,15 +11,15 @@
               .item-photo__top--size__sold__inner
                 SOLD
           .item-photo__bottom
-            = image_tag @image[0].images.url, class: 'item-photo__bottom--size' 
+            = image_tag @image[0].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[3].images.url, class: 'item-photo__bottom--size'
-        - else 
+        - else
           .item-photo__top
             = image_tag @image[0].images.url, class: 'item-photo__top--size'
           .item-photo__bottom
-            = image_tag @image[0].images.url, class: 'item-photo__bottom--size' 
+            = image_tag @image[0].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[3].images.url, class: 'item-photo__bottom--size'
@@ -32,16 +32,19 @@
           %tr
             %th カテゴリー
             %td
-              
+
               %br/
-              = link_to @item.category.name, "#", class: "delete-decoration"
+              スポーツ
+              -# = link_to @item.category.name, "#", class: "delete-decoration"
           %tr
             %th ブランド
             %td
-              = @item.brand.name
+              NIKE
+              = icon('fas', 'check')
+              -# = @item.brand.name
           %tr
             %th 商品のサイズ
-            %td 
+            %td
           %tr
             %th 商品の状態
             %td
@@ -53,11 +56,12 @@
           %tr
             %th 配送元地域
             %td
-              = link_to @item.area.name, class: "delete-decoration"
+              -# = link_to @item.address.prefecture, class: "delete-decoration"
           %tr
             %th 発送日の目安
             %td
-              = @item.burden
+              = @item.area_id
+
     .item-price
       %span.item-price__bold
         ¥
@@ -71,7 +75,7 @@
       = render 'items/sold'
     -else
       = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
-   
+
     .item-description
       %p.item-description__inner
         = @item.descripstion
@@ -135,6 +139,3 @@
                 %h3.items-box-name 女の子向け玩具　スタンプセット×2
                 .items-box-num
                   .items-box-price ¥900
-
-
-
