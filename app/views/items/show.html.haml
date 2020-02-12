@@ -69,7 +69,7 @@
       %span.item-price__tax (税込)
       %span.item-price__shipping-fee 送料込み
 
-    -if user_signed_in? && current_user.id == @item.seller_id
+    -if user_signed_in? && current_user.id == @item.user_id
       = render 'items/edit'
     -elsif @item.buyer_id.present?
       = render 'items/sold'
@@ -110,32 +110,32 @@
         %li
           = link_to "後ろの商品 ＞", "#", class: "delete-decoration"
 
-    .items-in-user
-      %section.items-containers
-        %h2.items-containers__head
-          = link_to "〇〇さんのその他の商品", "#", class: "delete-decoration"
-        .items-containers__content
-          %section.items-box
-            = link_to "#", class: "delete-decoration" do
-              %figure.items-box-photo
-                %img.is-higher-height{alt: "デイリー六法　2018", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/08/08877f925c01910714436b83b5921909_w.jpg"}/
-              .items-box-body
-                %h3.items-box-name デイリー六法　2018
-                .items-box-num
-                  .items-box-price ¥1,300
-          %section.items-box
-            = link_to "#", class: "delete-decoration" do
-              %figure.items-box-photo
-                %img.is-higher-height{alt: "一番コフレ　ジョジョの奇妙な冒険　～黄金の風～　ギャングの香りハンドクリーム", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/08/08877f925c01910714436b83b5921909_w.jpg"}/
-              .items-box-body
-                %h3.items-box-name 一番コフレ　ジョジョの奇妙な冒険　～黄金の風～　ギャングの香りハンドクリームああああああああああああああああああああああああああああ
-                .items-box-num
-                  .items-box-price ¥800
-          %section.items-box
-            = link_to "#", class: "delete-decoration" do
-              %figure.items-box-photo
-                %img.is-higher-height{alt: "女の子向け玩具　スタンプセット×2", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/08/08877f925c01910714436b83b5921909_w.jpg"}/
-              .items-box-body
-                %h3.items-box-name 女の子向け玩具　スタンプセット×2
-                .items-box-num
-                  .items-box-price ¥900
+    -# .items-in-user
+    -#   %section.items-containers
+    -#     %h2.items-containers__head
+    -#       = link_to "〇〇さんのその他の商品", "#", class: "delete-decoration"
+    -#     .items-containers__content
+    -#       %section.items-box
+    -#         = link_to "#", class: "delete-decoration" do
+    -#           %figure.items-box-photo
+    -#             %img.is-higher-height{alt: "デイリー六法　2018", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/08/08877f925c01910714436b83b5921909_w.jpg"}/
+    -#           .items-box-body
+    -#             %h3.items-box-name デイリー六法　2018
+    -#             .items-box-num
+    -#               .items-box-price ¥1,300
+    -#       %section.items-box
+    -#         = link_to "#", class: "delete-decoration" do
+    -#           %figure.items-box-photo
+    -#             %img.is-higher-height{alt: "一番コフレ　ジョジョの奇妙な冒険　～黄金の風～　ギャングの香りハンドクリーム", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/08/08877f925c01910714436b83b5921909_w.jpg"}/
+    -#           .items-box-body
+    -#             %h3.items-box-name 一番コフレ　ジョジョの奇妙な冒険　～黄金の風～　ギャングの香りハンドクリームああああああああああああああああああああああああああああ
+    -#             .items-box-num
+    -#               .items-box-price ¥800
+    -#       %section.items-box
+    -#         = link_to "#", class: "delete-decoration" do
+    -#           %figure.items-box-photo
+    -#             %img.is-higher-height{alt: "女の子向け玩具　スタンプセット×2", "data-src": "#", src: "https://d1f5hsy4d47upe.cloudfront.net/08/08877f925c01910714436b83b5921909_w.jpg"}/
+    -#           .items-box-body
+    -#             %h3.items-box-name 女の子向け玩具　スタンプセット×2
+    -#             .items-box-num
+    -#               .items-box-price ¥900
