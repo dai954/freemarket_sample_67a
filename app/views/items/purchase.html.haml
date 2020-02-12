@@ -55,12 +55,9 @@
          .wrap__main__in__content__inner__form__address__inner__box__left
           配送先
         .wrap__main__in__content__inner__form__address__inner__text
-         = @user.addresses[0][:post]
+        
          %br/
-         = @user.addresses[0][:prefecture]
-         = @user.addresses[0][:city]
-         = @user.addresses[0][:number]
-      
+          大阪府      
          %br/
          = @user.name
 
