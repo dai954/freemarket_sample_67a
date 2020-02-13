@@ -90,16 +90,19 @@
     .item-detail-message
       .message-container
         .message-content
-          = form_with(local: true, method: :post, class: "message-content__form") do |form|
-            = form.text_area :body, type: "text", class: "message-content__form--textarea"
+          = form_with(model: [@item,@comment], local: true, class: "message-content__form") do |form|
+            = form.text_area :text, type: "text", class: "message-content__form--textarea"
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
             = form.submit "コメントする" ,type: "submit", class: "message-content__form--submit"
-    .item-comment
-      <コメント一覧>
-      - if @comments
-        - @comments.each do |comment|
-          = link_to comment.user.name, "/users/#{comment.user_id}"
-          = comment.text
+        .comment
+          <コメント一覧>
+          .comment__inner
+            - @comments.each do |comment|
+              .comment__inner__box
+                = link_to comment.user.name,user_path,class: "comment__inner__box__name"
+                .comment__inner__box__text
+                  = comment.text
+              
 
     %ul.nav-item
       .nav-item__link-prev

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :credits
   has_many :items
   has_many :addresses
+  has_many :comments
   belongs_to :buyer, optional: true
   belongs_to :seller,optional: true,dependent: :destroy
 end
