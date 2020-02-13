@@ -1,58 +1,4 @@
 $(function(){
-  
-  // $('.item-photo__bottom--size').hover(function(){
-  // $('.item-photo__top--size').attr('src',$(this).attr('src'))
-  
-  // });
-  // function buildHTML(item){
-  //   var html = 
-  // `<div class="exhibition__detail__20__1">
-  //   <div class="exhibition__detail__20__1__1">
-  //   価格
-  //   </div>
-  //   <div class="exhibition__detail__20__1__2">
-  //     <div class="exhibition__detail__20__1__2__1">
-  //     ¥
-  //     </div>
-  //     <div class="exhibition__detail__20__1__2__2">
-  //       ${item.price}
-  //     </div>
-  //   </div>
-  // </div>`
-  // return html;
-  // };
-  // $(".new_item").keyup(function(e){
-  //   e.preventDefault()
-  //   console.log("ok1")
-  //   var formData = new FormData(this);
-  //   var url = $(this).attr('action')
-  //   $.ajax({
-  //     url: url,
-  //     type: 'get',
-  //     data: formData,
-  //     dataType: 'json',
-  //     processData: false,
-  //     contentType: false
-  //   })
-  //   .done(function(formData){
-  //     console.log("ok2")
-  //     var html = buildHTML(formData);
-  //     if (html >= 300){
-  //       $(".exhibition__detail__20__2__1__1").append(html %10);
-  //     } else {
-  //       $(".exhibition__detail__20__2__1__1").none;
-  //     }
-  //   })
-  //   })
-
-
-  
-
-
-
-  // $(document).on('turbolinks:load', ()=> {
-  //   console.log("ok3")
-  //   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div class="exhibition__detail__3__2__1__1__1" data-index="${index}">
                     <input class="exhibition__detail__3__2__1__1__1__1" type="file" name="item[images_attributes][${index}][images]" id="item_images_attributes_${index}_images">
@@ -79,10 +25,6 @@ $(function(){
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-    // $('#image-box').append(buildFileField(fileIndex[0]));
-    // fileIndex.shift();
-    // // 末尾の数に1足した数を追加する
-    // fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('images', blobUrl);
     } else {  // 新規画像追加の処理
@@ -111,32 +53,6 @@ $(function(){
 
 // });
 /* <input placeholder="例) 300" class="exhibition__detail__20__1__2__2__1" type="text" name="item[price]" id="item_price"></input> */
-
-
-  const buildFolder = () => {
-    const html = `<div class="exhibition__detail__8">
-                    <select name="item[category_id]" id="item_category_id">
-                    <option value="">------</option>
-                      <option value="トップス">トップス</option>
-                      <option value="ジャケット/アウター">ジャケット/アウター</option>
-                      <option value="パンツ">パンツ</option>
-                      <option value="スカート">スカート</option>
-                      <option value="ワンピース">ワンピース</option>
-                      <option value="靴">靴</option>
-                      <option value="ルームウェア/パジャマ">ルームウェア/パジャマ</option>
-                      <option value="帽子">帽子</option>
-                      <option value="その他">その他</option>
-                    </select>
-                  </div>`;
-    return html;
-  }
-  $("#item_category_id").on("change", function(e) {
-    e.preventDefault();
-      var html = buildFolder();
-      $(".exhibition__detail__8__1").append(html)
-      
-  });
-
 
   $("#item_price").on("keyup", function(e) {
     e.preventDefault();
