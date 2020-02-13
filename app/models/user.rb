@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   #deviseのデフォルトバリデーションはemail,passwordのみのため、追加しています
-  validates :name,:ruby_first,:ruby_last,:first_name,:last_name,:birthday, presence: true, length: { maximum: 6 }
+  validates :name,:ruby_first,:ruby_last,:first_name,:last_name,:birthday, presence: true
   has_many :credits
   has_many :items
   has_many :addresses
