@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
   end
 
+  def new2
+    @address = Address.new
+  end
+
   def logout
 
   end

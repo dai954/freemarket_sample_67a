@@ -6,10 +6,46 @@
         = devise_error_messages!
         .field
           .field-label
-            = f.label :名前
+            = f.label :ニックネーム
             %i 必須
           .field-input
             = f.text_field :name, autofocus: true
+        .field
+          .field-label
+            = f.label :姓
+            %i 必須
+          .field-input
+            = f.text_field :last_name, autofocus: true
+        .field
+          .field-label
+            = f.label :姓（カナ）
+            %i 必須
+          .field-input
+            = f.text_field :ruby_last, autofocus: true
+        .field
+          .field-label
+            = f.label :名
+            %i 必須
+          .field-input
+            = f.text_field :first_name, autofocus: true
+        .field
+          .field-label
+            = f.label :名（カナ）
+            %i 必須
+          .field-input
+            = f.text_field :ruby_first, autofocus: true
+        .field
+          .field-label
+            = f.label :生年月日
+            %i 必須
+          .field-input
+            = f.text_field :birthday
+        .field
+          .field-label
+            = f.label :電話番号
+            %i 任意
+          .field-input
+            = f.text_field :tel
         .field
           .field-label
             = f.label :eメール
