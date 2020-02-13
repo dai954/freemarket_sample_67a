@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     member do
       get :purchase
-   end
+    end
   end
 
   resources :users, only: [:index, :show, :new, :edit, :update] do
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       get :add
     end
   end
-
   resources :credit, only: [:index, :new, :show] do
     collection do
       post 'show', to: 'credit#show'
@@ -31,6 +30,9 @@ Rails.application.routes.draw do
     member do
       post 'purchase', to: 'credit#purchase'
     end
+  end
+  namespace :api do
+    resources :categorys, only: :index, defaults: { format: 'json' }
   end
 
 end

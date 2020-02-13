@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_073317) do
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "buyer_id"
     t.bigint "category_id"
     t.bigint "user_id"
     t.bigint "brand_id"
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_073317) do
     t.integer "seller_id"
     t.index ["address_id"], name: "index_items_on_address_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -112,11 +114,11 @@ ActiveRecord::Schema.define(version: 2020_02_10_073317) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_users_on_buyer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["seller_id"], name: "index_users_on_seller_id"
   end
 
   add_foreign_key "addresses", "users"
@@ -126,6 +128,8 @@ ActiveRecord::Schema.define(version: 2020_02_10_073317) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "addresses"
   add_foreign_key "items", "brands"
+  add_foreign_key "items", "buyers"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
+  add_foreign_key "users", "buyers"
 end
