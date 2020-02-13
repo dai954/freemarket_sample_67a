@@ -61,18 +61,8 @@
         .exhibition__detail__7
           カテゴリー
         .exhibition__detail__8
-           = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "---"}
-          -# = f.select :category_id, [["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"], ["インテリア・住まい・小物", "インテリア・住まい・小物"], ["本・音楽・ゲーム", "本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ", "おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容", "コスメ・香水・美容"], ["家電・スマホ・カメラ", "家電・スマホ・カメラ"], ["スポーツ・レジャー", "スポーツ・レジャー"], ["ハンドメイド", "ハンドメイド"], ["チケット", "チケット"], ["自転車・オートバイ", "自転車・オートバイ"], ["その他", "その他"]], :prompt => "------"
-            -# .listing-form-box
-            -#   .listing-product-detail__category
-            -#     = f.label 'カテゴリー', class: 'listing-default__label'
-            -#     %span.listing-default--require 必須
-            -#     .listing-select-wrapper
-            -#       .listing-select-wrapper__box
-            -#         = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-            -#         -# = f.collection_select :category_id, Category.all, Category.ids, category.name, {class: 'listing-select-wrapper__box--select'}
-            -#         %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-            -#         -# = f.hidden_field :category_id, value: category.id
+          = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "---"}
+          
           = f.select :category_id, [["レディース", "1"], ["メンズ", "200"], ["ベビー・キッズ", "346"], ["インテリア・住まい・小物", "481"], ["本・音楽・ゲーム", "625"], ["おもちゃ・ホビー・グッズ", "685"], ["コスメ・香水・美容", "798"], ["家電・スマホ・カメラ", "898"], ["スポーツ・レジャー", "984"], ["ハンドメイド", "1093"], ["チケット", "1147"], ["自転車・オートバイ", "1207"], ["その他", "1270"]], :prompt => "------"
           .exhibition__detail__8__1
         .exhibition__detail__9
