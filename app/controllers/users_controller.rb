@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-
+    @user = User.find(current_user.id)
   end
 
   def new
@@ -13,10 +13,6 @@ class UsersController < ApplicationController
 
   def login
 
-  end
-
-  def new2
-    @address = Address.new
   end
 
   def logout
@@ -53,5 +49,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email)
   end
-  
 end

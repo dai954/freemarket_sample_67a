@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     end
   end
 
-  
   root "items#index"
   resources :items do
     resources :comments, only: :create
@@ -14,16 +13,15 @@ Rails.application.routes.draw do
       get :purchase
     end
   end
-
+  
   resources :addresses
   resources :users, only: [:index, :show, :new, :edit, :update] do
-
+    
     collection do
       get :login
       get :logout
       get :card
       get :add
-      # get :new2
     end
   end
   resources :credit, only: [:index, :new, :show] do

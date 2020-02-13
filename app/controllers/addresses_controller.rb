@@ -5,7 +5,7 @@ class AddressesController < ApplicationController
 
   def create
     Address.create(addresses_params)
-    redirect_to users_path
+    redirect_to root_path
   end
   private
   def addresses_params
