@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def update    
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:notice] = "編集しました。"
       redirect_to
