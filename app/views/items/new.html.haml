@@ -38,7 +38,7 @@
                   - if @item.persisted?
                     = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
                 - if @item.persisted?
-                  .exhibition__detail__3__3{data-index="@item.images.count %>"}
+                  .exhibition__detail__3__3{data-index="@item.images.count"}
                   = file_field_tag :images, name: "item[images_attributes][#{@item.i.count}][image]", class: 'exhibition__detail__3__3__1'
                   -# .exhibition__detail__3__2__2
                   -#   = "削除"
@@ -61,7 +61,9 @@
         .exhibition__detail__7
           カテゴリー
         .exhibition__detail__8
-          = f.select :category_id, [["レディース", "1"], ["メンズ", "200"], ["ベビー・キッズ", "346"], ["インテリア・住まい・小物", "481"], ["本・音楽・ゲーム", "625"], ["おもちゃ・ホビー・グッズ", "685"], ["コスメ・香水・美容", "798"], ["家電・スマホ・カメラ", "898"], ["スポーツ・レジャー", "984"], ["ハンドメイド", "1093"], ["チケット", "1147"], ["自転車・オートバイ", "1207"], ["その他", "1270"]], :prompt => "------"
+          = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "---"}
+          
+          -# = f.select :category_id, [["レディース", "1"], ["メンズ", "200"], ["ベビー・キッズ", "346"], ["インテリア・住まい・小物", "481"], ["本・音楽・ゲーム", "625"], ["おもちゃ・ホビー・グッズ", "685"], ["コスメ・香水・美容", "798"], ["家電・スマホ・カメラ", "898"], ["スポーツ・レジャー", "984"], ["ハンドメイド", "1093"], ["チケット", "1147"], ["自転車・オートバイ", "1207"], ["その他", "1270"]], :prompt => "------"
           .exhibition__detail__8__1
         .exhibition__detail__9
           商品の状態
