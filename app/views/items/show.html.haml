@@ -97,17 +97,12 @@
         .comment
           <コメント一覧>
           .comment__inner
-            - if @comments
               - @comments.each do |comment|
                 .comment__inner__box
                   = link_to comment.user.name,user_path,class: "comment__inner__box__name"
                   .comment__inner__box__text
                     = comment.text
-            -else
-              -flash[:notice] = "コメント欄が空白です。"
-              -@item = Item.find(params[:item_id])
-              -redirect_to item_path(@item)
-
+              
 
     %ul.nav-item
       .nav-item__link-prev

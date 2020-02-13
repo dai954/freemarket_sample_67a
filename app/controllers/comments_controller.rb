@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(comment_params)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      Comment.create(comment_params)
+      redirect_to item_path(@item)
+    else
+      flash[:notice] = "コメント欄が空白です。"
+      @item = Item.find(params[:item_id])
+      redirect_to item_path(@item)
+    end
+
     @item = Item.find(params[:item_id])
     redirect_to item_path(@item)
   end
@@ -11,3 +20,4 @@ class CommentsController < ApplicationController
   end
 
 end
+
