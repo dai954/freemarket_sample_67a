@@ -5,36 +5,36 @@
  .wrap__main
   .wrap__main__in
    .wrap__main__in__header 購入内容の確認
-  
+
    .wrap__main__in__buy
     .wrap__main__in__buy__inner
      .wrap__main__in__buy__inner__box
       .wrap__main__in__buy__inner__box__left
        = image_tag "icon_category.png",width: "80px", height: "80px"
-    
+
       .wrap__main__in__buy__inner__box__right
-       .wrap__main__in__buy__inner__box__right__name 
+       .wrap__main__in__buy__inner__box__right__name
         = @item.name
        %span.wrap__main__in__buy__inner__box__right__price
         ¥#{@item.price}
        %span{style: "font-weight: 600"}（税込）送料込み
 
    .wrap__main__in__content
-    
+
     .wrap__main__in__content__inner
-    
+
      = form_with(url: purchase_credit_path, class: "wrap__main__in__content__inner__form", local: true, method: :post) do |f|
       %ul.wrap__main__in__content__inner__form__table
-       .wrap__main__in__content__inner__form__table__price 支払い金額   
+       .wrap__main__in__content__inner__form__table__price 支払い金額
        .wrap__main__in__content__inner__form__table__cash ¥#{@item.price}
-      
+
       %ul.wrap__main__in__content__inner__form__point
        .wrap__main__in__content__inner__form__point__label
 
-      
+
       .wrap__main__in__content__inner__form__info
        .wrap__main__in__content__inner__form__info__inner
-        
+
         .wrap__main__in__content__inner__form__info__inner__box
          .wrap__main__in__content__inner__form__info__inner__box__left 支払い方法
         .wrap__main__in__content__inner__form__info__inner__credit
@@ -56,11 +56,12 @@
           配送先
         .wrap__main__in__content__inner__form__address__inner__text
          = @user.addresses[0][:post]
+
          %br/
          = @user.addresses[0][:prefecture]
          = @user.addresses[0][:city]
          = @user.addresses[0][:number]
-      
+
          %br/
          = @user.name
 
@@ -69,7 +70,7 @@
 
  .wrap__footer
   %ul.wrap__footer__message
-   %li.a 
+   %li.a
    = link_to "プライバシーポリシー","#"
    %li.a
    = link_to "フリマ利用規約","#"
@@ -78,5 +79,3 @@
   .wrap__footer__logo
    = image_tag "icon_category.png",width: "80px", height: "65px"
   %small © Furima, Inc.
-
-

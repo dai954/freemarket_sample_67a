@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
   end
 
+  def new2
+    @address = Address.new
+  end
+
   def logout
 
   end
@@ -47,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email))
+    params.require(:user).permit(:name, :email)
   end
   
 end

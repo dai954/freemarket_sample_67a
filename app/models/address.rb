@@ -1,3 +1,4 @@
 class Address < ApplicationRecord
-  has_many :items
+  validates :prefecture,:number,:post,:city,:building,presence: true
+  has_many :items, dependent: :destroy
 end
