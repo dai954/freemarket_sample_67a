@@ -21,12 +21,13 @@
           最大10枚までアップロードできます
         .exhibition__detail__3__2
           -@item.images.all.order(id: "ASC").each do |image|
-            = image_tag image.images.url, height: '150px', width: '220px'
+            = image_tag image.images.url, height: '', width: '160px'
           = f.fields_for :images do |i|
-            .exhibition__detail__3__2__1
-              .exhibition__detail__3__2__1__1
-                .exhibition__detail__3__2__1__1__1{"data-index":"#{i.index}"}
-                  = i.file_field :images, class: "exhibition__detail__3__2__1__1__1__1"
+            .exhibition__detail-a__3__2__1
+              .exhibition__detai-a__3__2__1__1
+                .exhibition__detail-a__3__2__1__1__1{"data-index":"#{i.index}"}
+                  = i.file_field :images, class: "exhibition__detail-a__3__2__1__1__1__1"
+                  
       .exhibition__detail__4
         .exhibition__detail__4__1
           商品名
