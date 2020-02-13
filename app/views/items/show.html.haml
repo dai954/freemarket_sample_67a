@@ -97,11 +97,11 @@
         .comment
           <コメント一覧>
           .comment__inner
-              - @comments.each do |comment|
-                .comment__inner__box
-                  = link_to comment.user.name,user_path,class: "comment__inner__box__name"
-                  .comment__inner__box__text
-                    = comment.text
+            - @comments.each do |comment|
+              .comment__inner__box
+                = link_to comment.user.name,user_path,class: "comment__inner__box__name"
+                .comment__inner__box__text
+                  = comment.text
               
 
     %ul.nav-item
