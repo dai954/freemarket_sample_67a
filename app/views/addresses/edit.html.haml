@@ -1,0 +1,38 @@
+#account-page.account-page
+  .account-page__inner.clearfix
+    .account-page__inner--main.user-form
+      会員情報編集
+      = form_with(url: edit_address_path, local: true, method: :get) do |f|
+        .field
+          .field-label
+            = f.label :郵便番号
+            %i 必須
+          .field-input
+            = f.text_field :post
+        .field
+          .field-label
+            = f.label :都道府県
+            %i 必須
+          .field-input
+            = f.text_field :prefecture
+        .field
+          .field-label
+            = f.label :市区町村
+            %i 必須
+          .field-input
+            = f.text_field :city
+        .field
+          .field-label
+            = f.label :番地
+            %i 必須
+          .field-input
+            = f.text_field :number
+        .field
+          .field-label
+            = f.label :建物（例：ハイツ101号室）
+            %i 任意
+          .field-input
+            = f.text_field :building
+
+        .actions
+          = f.submit "編集完了", class: "btn"

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @user = User.find(current_user.id)
+    @address_user_id = Address.find_by(user_id: current_user.id)
   end
 
   def new

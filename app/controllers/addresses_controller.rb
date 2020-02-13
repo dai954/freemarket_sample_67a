@@ -7,9 +7,13 @@ class AddressesController < ApplicationController
     Address.create(addresses_params)
     redirect_to root_path
   end
+
+  def edit
+
+  end
   private
   def addresses_params
     params.permit(:prefecture, :post, :city, :number, :building).merge(user_id: current_user.id)
-    
+
   end
 end
