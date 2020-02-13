@@ -35,10 +35,10 @@
 //   // 親カテゴリー選択後のイベント
 //   $('#parent_category').on('change', function(){
 //     // .valueプロパティはval()と同じ？
-//     // getElementByIdは、任意のHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド
+    // getElementByIdは、任意のHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド
 //     // document.getElementById('parent_category').valueは#parent_categoryのHTML要素を取得している
 //      // ↓ productcategoryに選択した親のvalueを代入
-//     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    // var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
 //     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
 //       // console.log("ok4")
 //       $.ajax({
@@ -55,11 +55,11 @@
 //         $('#grandchildren_wrapper').remove();
 //         // $('#size_wrapper').remove();
 //         // $('#brand_wrapper').remove();
-//         var insertHTML = '';
-//         children.forEach(function(child){
-//           // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
-//           // childは親要素の子要素たちが入っている
-//           insertHTML += appendOption(child);
+        // var insertHTML = '';
+        // children.forEach(function(child){
+        //   // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
+        //   // childは親要素の子要素たちが入っている
+        //   insertHTML += appendOption(child);
 //         });
 //         appendChidrenBox(insertHTML);
 //       })
@@ -119,11 +119,12 @@
 
 $(function(){
   function buildHTML(category){
-    var html = `<option value="${category.name}">${category.id}</option>`
+    var html = `<option value="${category.id}">${category.name}</option>`
     return html;
   };
-  $(document).on("change", "#item_category_id", function(){
+  $(".exhibition__detail__8").on("change", ".aaaaa", function(){
     var category_id = $(this).val()
+    $(this).nextAll().remove()
     $.ajax({
       url: "/api/categorys",
       type: 'GET',
@@ -131,13 +132,15 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data)
-      var html = buildHTML(data);
-      
-      console.log(html)
-      $(".exhibition__detail__8").append(html);
-    });
-    
-  })
-});
+      if (data.length >= 1){
+        insertHNTL = ""
+        data.forEach(function(category){
+          var html = buildHTML(category);
+          insertHNTL += html
+        })
+        $(".exhibition__detail__8").append(`<select class="aaaaa">${insertHNTL}</select>`)
+      }  
+    })
+  });
+})
 

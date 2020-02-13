@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_02_12_100740) do
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "buyer_id"
     t.bigint "category_id"
     t.bigint "user_id"
     t.bigint "brand_id"
@@ -135,5 +134,4 @@ ActiveRecord::Schema.define(version: 2020_02_12_100740) do
   add_foreign_key "items", "buyers"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
-  add_foreign_key "users", "buyers"
 end
