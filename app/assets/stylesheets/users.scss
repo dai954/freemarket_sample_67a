@@ -10,7 +10,7 @@
   height:  100%;
   background-color: #b3d4fc;
   font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
-  .mypage__nav{
+  &__nav{
     height: 100%;
     width: 260px;
     padding-bottom: 20px;
@@ -29,7 +29,7 @@
       padding-top: 50px;
     }
   }
-  .mypage__content{
+  &__content{
     height: 100%;
     width: 700px;
     margin-left: 50px;
@@ -48,6 +48,14 @@
         }
       &__name{
         padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        &__last{
+          margin-right: 10px;
+        }
+        &__first{
+          margin-left: 10px;
+        }
       }
       &__count{
         padding: 10px 100px;

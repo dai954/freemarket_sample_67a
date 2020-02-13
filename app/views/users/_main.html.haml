@@ -3,7 +3,10 @@
     .mypage__content__user__icon
       = image_tag "/member_photo_noimage_thumb.png", alt: "ユーザー"
     .mypage__content__user__name
-      ユーザーネーム
+      .mypage__content__user__name__last
+        = @user.last_name
+      .mypage__content__user__name__first
+        = @user.first_name
     .mypage__content__user__count
       .mypage__content__user__count__evaluation
         評価 100

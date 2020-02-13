@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:birthday,:last_name,:first_name,:ruby_first,:ruby_last])
   end
   def index
+    
   end
 
   private
