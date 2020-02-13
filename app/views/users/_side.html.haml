@@ -72,10 +72,15 @@
     %li.mypage__nav__list__item
       %h3 プロフィール
       %p >
-  = link_to new_address_path do
-    %li.mypage__nav__list__item
-      %h3 発送元・お届け先住所登録
-      %p >
+  - if @address_user_id == nil
+    = link_to new_address_path do
+      %li.mypage__nav__list__item
+        %h3 発送元・お届け先住所登録
+        %p >
+  -# = link_to edit_address_path do
+  -#   %li.mypage__nav__list__item
+  -#     %h3 発送元・お届け先住所編集
+  -#     %p >
   = link_to card_users_path do
     %li.mypage__nav__list__item
       %h3 支払い方法
