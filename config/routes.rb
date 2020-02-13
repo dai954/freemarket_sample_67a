@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'addresses#new'
+    end
+  end
+
   root "items#index"
   resources :items do
     resources :comments, only: :create
-    collection do
-      get :edit
-    end
     member do
       get :purchase
     end

@@ -1,3 +1,9 @@
+.notification{
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+
 .delete-decoration{
   color: #3CCACE;
   text-decoration: none;
@@ -173,6 +179,8 @@
           width: 650px;
           height: 100px;
         }
+
+    }
         p{
           padding: 8px;
           font-size: 14px;
@@ -190,7 +198,34 @@
           border-radius: 100px;
         }
       }
-    }
+
+    .comment{
+      text-align: center;
+      font-weight: 400;
+
+      &__inner{
+        &__box{
+          display: flex;
+          margin: 60px 0 0;
+          padding: 0;
+
+         &__name{
+           color: black;
+           width: 80px;
+           display: inline-block;
+           
+         }
+         &__text{
+           padding: 16px;
+           background: #eef0f4;
+           line-height: 1.5;
+           width: calc(100% - 56px);
+           
+
+         }
+        }
+      }
+  }
   }
 }
 
