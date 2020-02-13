@@ -100,7 +100,7 @@
             - if @comments
               - @comments.each do |comment|
                 .comment__inner__box
-                  = link_to comment.user.name, "/users/#{comment.user_id}",class: "comment__inner__box__name"
+                  = link_to comment.user.name,user_path,class: "comment__inner__box__name"
                   .comment__inner__box__text
                     = comment.text
             -else
