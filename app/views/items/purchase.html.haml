@@ -2,6 +2,10 @@
  .wrap__header
   .wrap__header__image
    = image_tag "logo.png",width: "185px", height: "49px"
+  .wrap__header__bread
+   - breadcrumb :item
+   - breadcrumb :purchase
+   = render "layouts/breadcrumbs"
  .wrap__main
   .wrap__main__in
    .wrap__main__in__header 購入内容の確認
