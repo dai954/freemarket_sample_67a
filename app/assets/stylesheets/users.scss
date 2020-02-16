@@ -156,14 +156,22 @@
         }
       }
       &__name{
-        padding-top: 10px;
+        // padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        &__last{
+          margin: 0px 10px;
+        }
+        &__first{
+          margin: 0px 10px;
+        }
       }
       &__count{
         display: flex;
         justify-content: center;
         padding-top: 10px;
         &__evaluation{
-          padding: 0px 30px;
+          padding: 0px 20px;
         }
       }
     }
@@ -798,4 +806,3 @@
   }
 
 }
-

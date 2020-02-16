@@ -5,9 +5,9 @@
         = image_tag "/member_photo_noimage_thumb.png", alt: "ユーザー"
       .users__details__profile__name
         .users__details__profile__name__last
-          = 
+          = @user.last_name
         .users__details__profile__name__first
-        
+          = @user.first_name
       .users__details__profile__count
         .users__details__profile__count__evaluation
           評価 100
