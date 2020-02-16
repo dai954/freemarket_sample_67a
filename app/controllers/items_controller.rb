@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-
+  before_action :move_to_index, except: [:index, :show, :search]
+  
   # before_action :set_item, except: [:index, :new, :create, :destroy]
   require "payjp"
   def index
@@ -81,6 +82,9 @@ class ItemsController < ApplicationController
       render :layout => "mailer.text"
     end
   end
+
+ 
+
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     # .childrenは直下の子要素を取得する///この場合子要素のみ取得する

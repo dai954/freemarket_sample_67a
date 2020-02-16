@@ -1,0 +1,41 @@
+= form_with(url: items_searches_path, local: true, method: :get, class: "header__box__1__search-box__box") do |f|
+  = f.text_field :keyword, placeholder: "キーワードから探す", class: "header__box__1__search-box__box__text"
+  = image_submit_tag 'icon/icon-search 1.png', height: '19px', width: '19px', class: 'header__box__1__search-box__box__submit'
+.main__box5__box__product-box
+  - @items.each do |item|
+    .main__box5__box__product-box__product
+      = link_to "/items/#{item.id}", method: :get do
+        -if item.buyer_id.present?
+          .main__box5__box__product-box__product__image-box
+            %span
+              %h4 SOLD
+            = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+          .main__box5__box__product-box__product__show-box
+            %h3
+              = item.name
+            .main__box5__box__product-box__product__show-box__date
+              %ul
+                %li
+                  = item.price
+                  円
+                %li 
+                  %span ★
+                  = item.like
+              %p (税込)
+
+        - else 
+          .main__box5__box__product-box__product__image-box
+            = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
+          
+          .main__box5__box__product-box__product__show-box
+            %h3
+              = item.name
+            .main__box5__box__product-box__product__show-box__date
+              %ul
+                %li
+                  = item.price
+                  円
+                %li 
+                  %span ★
+                  = item.like
+              %p (税込)
