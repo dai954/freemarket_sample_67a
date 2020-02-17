@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :search]
-  
+
   # before_action :set_item, except: [:index, :new, :create, :destroy]
   require "payjp"
   def index
@@ -43,7 +42,7 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
   end
 
-  def update    
+  def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:notice] = "編集しました。"
@@ -59,7 +58,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if user_signed_in? && current_user.id == @item.seller_id && @item.destroy
       flash[:notice] = "商品「#{@item.name}」を削除しました。"
-      redirect_to root_path  
+      redirect_to root_path
     else
       flash[:notice] = "削除できません。"
       redirect_to root_path
@@ -83,7 +82,7 @@ class ItemsController < ApplicationController
     end
   end
 
- 
+
 
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
