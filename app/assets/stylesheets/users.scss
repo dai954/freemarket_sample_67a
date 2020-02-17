@@ -459,15 +459,16 @@
 }
 
 .contents {
-  height: calc(100vh - 100px);
+  height: 100%;
   width: 100vw;
   background-color: #f8f8f8f8;
   display: flex;
   flex-direction: column;
   align-items: center;
   &__block{
-    height: 200px;
+    height: 170px;
     width: 456px;
+    margin-top: 20px;
     &__login-no-account {
       background-color: white;
       text-align: center;
@@ -491,21 +492,20 @@
     }
   }
   &__top{
+    background-color: white;
     &__1{
       width: 100%;
       line-height: 48px;
       font-size: 14px;
       text-align: center;
-      background-color: white;
       height: 520px;
       width: 456px;
-      margin-top: 3px;
       &__facebook{
         height: 50px;
         width: 320px;
         background-color: blue;
         color: white;
-        margin: 0px 65px 20px 70px;
+        margin: 50px auto;
       }
       &__Google{
         height: 50px;
@@ -517,7 +517,7 @@
       &__mail{
         font-size: 30px;
         padding: 10px 16px 8px;
-        margin-top: 30px;
+        // margin-top: 30px;
         .field {
           margin-bottom: 10px;
 
@@ -743,7 +743,7 @@
         background-color:skyblue;
         border-radius: 10px;
         font-size: 40px;
-        margin: 30px 0px 0px 40px;
+        margin: 30px 0px 0px 70px;
       }
     }
   }
