@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_100740) do
     t.string "name"
     t.integer "like"
     t.integer "price"
-    t.string "status"
+    t.integer "status"
     t.text "descripstion"
     t.string "burden"
     t.string "method"
