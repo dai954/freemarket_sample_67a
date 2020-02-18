@@ -65,8 +65,8 @@
             %td
 
               %br/
-              スポーツ
-              -# = link_to @item.category.name, "#", class: "delete-decoration"
+              = @item.category.name
+              
           %tr
             %th ブランド
             %td
@@ -91,7 +91,7 @@
           %tr
             %th 発送日の目安
             %td
-              = @item.area_id
+              = @item.burden
 
     .item-price
       %span.item-price__bold
