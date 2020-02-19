@@ -65,6 +65,42 @@ $(function(){
         $(".exhibition__detail__20__3__2").text(num2);
       }
   });
+
+
+  // function buildLike(hoge){
+  //   var html = `<div class="vertical_like">
+  //                   <i class="material-icons grey-text text-darken-2">お気に入り　❤️</i>
+  //                   <span class="grey-text text-darken-2"></span>
+  //                   ${hoge.like_count}
+  //               </div>`;
+  //   return html;
+  // }
+  // $(".item-button__left").on("click", function(e){
+  //   e.preventDefault();
+  //   // var kazu = $(".grey-text text-darken-2").length;
+  //   console.log(this)
+  //   if (html == 0){
+  //     var html = buildLike(hoge)
+  //     $(".grey-text text-darken-2").append(html)
+      
+  //     }else{
+  //         // kazu
+  //       }
+        
+  //       })
 });
+// document.getElementsByClassName(".item-button__left").onclick = function() {
+//   document.getElementsByClassName(".grey-text text-darken-2").innerHTML += 1
+// }
 
 
+
+
+
+
+{/* <div class="item-button__left">
+<div id="item-button__left__like_#<Item:0x00007fa107039710>"></div>
+<a data-remote="true" rel="nofollow" data-method="post" href="/items/1/likes">
+
+</a>
+</div> */}
