@@ -117,7 +117,8 @@
                         円
                       %li 
                         %span ★
-                        = item.like
+                        %div{id: "likes_buttons_#{item.id}"}
+                        = render partial: 'items/like', locals: { item: item, likes: @likes}
                     %p (税込)
 
   .main__box5
@@ -160,5 +161,5 @@
                         円
                       %li 
                         %span ★
-                        = item.like
+                        -# = item.like
                     %p (税込)
