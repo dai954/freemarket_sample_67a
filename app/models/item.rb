@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :seller, optional: true
   belongs_to :address, optional: true
+  has_many :likes, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :comments,dependent: :destroy
   belongs_to_active_hash :area, optional: true
@@ -18,4 +19,9 @@ class Item < ApplicationRecord
     return Item.all unless search
     Item.where('name LIKE(?)', "%#{search}%")
   end
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
+  
 end
