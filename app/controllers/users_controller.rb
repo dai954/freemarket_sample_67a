@@ -20,6 +20,12 @@ class UsersController < ApplicationController
 
   end
 
+  def like
+    @user = current_user
+    @item = Item.all
+    @likes = Like.where(user_id: @user.id).all
+  end
+
   def card
     card = Credit.where(user_id: current_user.id).first
     if card.blank?

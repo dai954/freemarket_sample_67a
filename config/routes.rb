@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :items do
     resources :comments, only: :create
-    resources :likes, only: [:create, :destroy,:index]
+    resources :likes, only: [:create, :destroy]
     member do
       get :purchase
     end
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :edit, :update] do
 
     collection do
+      get :like
       get :login
       get :logout
       get :card
