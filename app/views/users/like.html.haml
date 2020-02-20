@@ -22,6 +22,7 @@
       .main1__content__post__favorite
         - @likes.each  do |like|
           .main1__content__post__favorite__name
-            = @item.name
+            = like.item.name
           .main1__content__post__favorite__picture
-            -# = @item.images[0].images.url
+            - like.item.images.first(1).each do |image|
+              = image_tag image.images.url
