@@ -99,7 +99,7 @@
                         = item.price
                         円
                       %li 
-                        %span ★
+                        %span ❤️
                         = item.like
                     %p (税込)
 
@@ -116,9 +116,7 @@
                         = item.price
                         円
                       %li 
-                        %span ★
-                        %div{id: "likes_buttons_#{item.id}"}
-                        = render partial: 'items/like', locals: { item: item, likes: @likes}
+                        %span ❤️
                     %p (税込)
 
   .main__box5
@@ -145,8 +143,9 @@
                         = item.price
                         円
                       %li 
-                        %span ★
-                        = item.like
+                        %span ❤️
+                        -# = @item.like_count 
+                        
                     %p (税込)
               - else 
                 .main__box5__box__product-box__product__image-box
@@ -160,7 +159,7 @@
                         = item.price
                         円
                       %li 
-                        %span ★
-                        %div{id: "likes_buttons_#{item.id}"}
-                        = render partial: 'items/like', locals: { item: item, likes: @likes}
+                        %span ❤️
+                        -# = @item.like_count 
+                        
                     %p (税込)

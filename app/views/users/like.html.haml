@@ -1,0 +1,27 @@
+= render 'layouts/header'
+.main1
+  = render "users/side"
+  .main1__content
+    .main1__content__user
+      .main1__content__user__icon
+        = image_tag "/member_photo_noimage_thumb.png", alt: "ユーザー"
+      .main1__content__user__name
+        .main1__content__user__name__last
+          = @user.last_name
+        .main1__content__user__name__first
+          = @user.first_name
+      .main1__content__user__count
+        .main1__content__user__count__evaluation
+          評価 100
+        .main1__content__user__count__exhibition
+          出品数 100
+
+    .main1__content__head お気に入り一覧
+
+    .main1__content__post
+      .main1__content__post__favorite
+        - @likes.each  do |like|
+          .main1__content__post__favorite__name
+            = @item.name
+          .main1__content__post__favorite__picture
+            -# = @item.images[0].images.url
