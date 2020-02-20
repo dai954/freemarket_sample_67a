@@ -18,11 +18,20 @@
 
     .main1__content__head お気に入り一覧
 
-    .main1__content__post
-      .main1__content__post__favorite
+    %ul.main1__content__post
+      %li
         - @likes.each  do |like|
-          .main1__content__post__favorite__name
-            = like.item.name
-          .main1__content__post__favorite__picture
-            - like.item.images.first(1).each do |image|
-              = image_tag image.images.url
+          .main1__content__post__favorite
+            .main1__content__post__favorite__item
+              .main1__content__post__favorite__item__picture
+                - like.item.images.first(1).each do |image|
+                  = image_tag image.images.url
+
+              .main1__content__post__favorite__item__name
+                = like.item.name
+                %br/
+                = like.item.price 
+                円
+              .main1__content__post__favorite__item__arrow
+                = link_to "/items/#{like.item.id}", method: :get do
+                  >
