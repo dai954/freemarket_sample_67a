@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-
-  # before_action :set_item, except: [:index, :new, :create, :destroy]
   require "payjp"
   def index
     @item = Item.includes(:images).all.order(updated_at: :desc)
@@ -25,7 +23,6 @@ class ItemsController < ApplicationController
     else
       @item.images.new
       render action: :new
-      # redirect_to new_item_path
     end
   end
 
@@ -38,7 +35,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @area = Area.find(@item.area_id)
     @image = @item.images
+    #show.html.hamlでform_withを使用して、comments#createにアクション先を飛ばしたいので、@comment = Comment.newとインスタンス生成をしないといけません。
     @comment = Comment.new
+    #itemsテーブルとcommentsテーブルはアソシエーションが組まれているので、@items.commentsとすることで、@itemについて投稿された全てのコメントのレコードを取得することができる。
+    #ビューでは誰のコメントかを明らかにするために、アソシエーションを使ってユーザーのレコードを取得する処理をする。またincludesメソッドを使って、N+1問題を解決している。
     @comments = @item.comments.includes(:user)
   end
 
@@ -55,11 +55,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    #item全てをインスタンス変数にいれる
     @item = Item.find(params[:id])
+    #ログインかつ現ユーザーで出品者本人なら削除可能
     if user_signed_in? && current_user.id == @item.seller_id && @item.destroy
+      #削除したらホームへ戻り、フラッシュメッセージ
       flash[:notice] = "商品「#{@item.name}」を削除しました。"
       redirect_to root_path
     else
+      #上記の条件以外なら削除不可
       flash[:notice] = "削除できません。"
       redirect_to root_path
     end

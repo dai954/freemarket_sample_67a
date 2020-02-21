@@ -1,1 +1,2 @@
+<% #.htmlはhtmlにこのファイルを渡すための記述。likes/likeのrenderを呼び出し、locals: {item: @item}はshow.html.hamlに反映させる値 %>
 $(".vertical_like").html("<%= escape_javascript(render partial: 'likes/like', locals: {item: @item}) %>");

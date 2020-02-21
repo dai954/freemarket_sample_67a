@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   root "items#index"
+  #items/search_controllerというディレクトリの中にさらにディレクトリがあるため、通常の記述じゃルーティングできないため、namespaceを使用
   namespace :items do
     resources :searches, only: :index
   end
   resources :items do
+    #コメント情報を作る機能
     resources :comments, only: :create
+    #likeは作ると削除のみ
     resources :likes, only: [:create, :destroy]
     member do
       get :purchase
@@ -19,6 +22,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :edit, :update] do
 
     collection do
+      #userページからいいね一覧を見るためのルート
       get :like
       get :login
       get :logout

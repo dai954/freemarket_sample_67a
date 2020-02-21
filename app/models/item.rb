@@ -14,12 +14,15 @@ class Item < ApplicationRecord
   # mount_uploader :images, ImageUploader
   validates :name, :price, :status, :descripstion, :burden, :method, :area_id, :images, presence: true
   # validates :text, presence: true
-
+  
+  #itemテーブルから検索するというメソッドのため、modelに記述
   def self.search(search)
+    #引数で渡されるsearchの中身に何もなければ全ての投稿を取得できる
     return Item.all unless search
     Item.where('name LIKE(?)', "%#{search}%")
   end
-
+  
+  #ユーザーが既にお気に入り登録しているか確認するメソッド
   def like_user(user_id)
     likes.find_by(user_id: user_id)
   end

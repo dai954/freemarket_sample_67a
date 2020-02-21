@@ -1,7 +1,10 @@
+/出品者が商品詳細をみた時のView
 .box
  .box__inner
+  /商品編集ページへ飛ぶ
   = link_to "商品の編集",edit_item_path, class: "box__inner__edit"
 
   %p.box__inner__center or
 
+  /item削除をmethodで定義し、削除直前にフラッシュメッセージが表示される
   = link_to 'この商品を削除する',"#{@item.id}",method: :delete, data:{ confirm: "商品「#{@item.name}」を削除します。よろしいですか?"},class: 'box__inner__delete'

@@ -28,8 +28,9 @@
           %li
             = link_to users_path do
               マイページ
-      - breadcrumb :item
-      = render "layouts/breadcrumbs"
+    /パンくず表示のための記述
+    - breadcrumb :item
+    = render "layouts/breadcrumbs"
 .show-items-containers
   %section.item-box-container
     %h1.item-name
@@ -46,7 +47,8 @@
             = image_tag @image[0].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
-            
+            /商品が売れた時の条件分岐
+
         - else
           .item-photo__top
             = image_tag @image[0].images.url, class: 'item-photo__top--size'
@@ -54,6 +56,7 @@
             = image_tag @image[0].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[1].images.url, class: 'item-photo__bottom--size'
             = image_tag @image[2].images.url, class: 'item-photo__bottom--size'
+            /商品在庫がある時の条件分岐
       %table.item-detail-table
         %tbody
           %tr.table-record
@@ -72,7 +75,7 @@
             %td
               NIKE
               = icon('fas', 'check')
-              -# = @item.brand.name
+              
           %tr
             %th 商品のサイズ
             %td
@@ -99,20 +102,23 @@
         = @item.price
       %span.item-price__tax (税込)
       %span.item-price__shipping-fee 送料込み
-
-    -if user_signed_in? && current_user.id == @item.user_id
+    
+    -if user_signed_in? && current_user.id == @item.seller_id
       = render 'items/edit'
+      /ログインかつ現ユーザーで出品していたら
     -elsif @item.buyer_id.present?
       = render 'items/sold'
+      /購入していたら
     -else
       = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
+      /上記以外
 
     .item-description
       %p.item-description__inner
         = @item.descripstion
     .item-button
       .item-button__left
-        %div{id: "likes-buttons"}
+        /部分テンプレートlikeをレンダリングし、部分テンプレートlikeがjsファイル呼び出す。localsの部分はlike_controllerに記述されたインスタンス変数。
         = render partial: 'likes/like', locals: { item: @item,likes: @likes}
         
       
@@ -122,6 +128,7 @@
     .item-detail-message
       .message-container
         .message-content
+          /form_withでcomment#createに飛ばす
           = form_with(model: [@item,@comment], local: true, class: "message-content__form") do |form|
             = form.text_area :text, type: "text", class: "message-content__form--textarea"
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -129,6 +136,7 @@
         .comment
           <コメント一覧>
           .comment__inner
+            /itemに紐づくコメントをコメントテーブルから取り出す
             - @comments.each do |comment|
               .comment__inner__box
                 = link_to comment.user.name,user_path,class: "comment__inner__box__name"

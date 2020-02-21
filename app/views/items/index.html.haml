@@ -100,7 +100,7 @@
                         円
                       %li 
                         %span ❤️
-                        = item.like
+                        = item.like_count
                     %p (税込)
 
               - else 
@@ -117,6 +117,7 @@
                         円
                       %li 
                         %span ❤️
+                        = item.like_count
                     %p (税込)
 
   .main__box5
@@ -144,7 +145,7 @@
                         円
                       %li 
                         %span ❤️
-                        -# = @item.like_count 
+                        = item.like_count
                         
                     %p (税込)
               - else 
@@ -160,6 +161,6 @@
                         円
                       %li 
                         %span ❤️
-                        -# = @item.like_count 
+                        = item.like_count
                         
                     %p (税込)

@@ -25,15 +25,19 @@
           %li
             = link_to users_path do
               マイページ
+
+/商品一覧と同じHamlを使用。購入済みは『Sold』が表示されるよう条件分岐されている
 .main__box5__box__product-box
-  - @items.each do |item|
+  - @items.each do |item| 
     .main__box5__box__product-box__product
+      /ここで特定のitem詳細に飛ぶ
       = link_to "/items/#{item.id}", method: :get do
         -if item.buyer_id.present?
           .main__box5__box__product-box__product__image-box
             %span
               %h4 SOLD
             = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'
+            /imageのうち最初のひとつだけ取り出す
           .main__box5__box__product-box__product__show-box
             %h3
               = item.name
@@ -43,10 +47,10 @@
                   = item.price
                   円
                 %li 
-                  %span ★
+                  %span ❤️
+                  = item.like_count
                   
               %p (税込)
-
         - else 
           .main__box5__box__product-box__product__image-box
             = image_tag item.images[0].images.url, height: '150px', width: '220px', class: 'main__box5__box__product-box__product__image-box__image'              
@@ -60,6 +64,8 @@
                   = item.price
                   円
                 %li 
-                  %span ★
+                  %span ❤️
+                  = item.like_count
                   
               %p (税込)
+              /こちらは売り切れてない場合の条件分岐

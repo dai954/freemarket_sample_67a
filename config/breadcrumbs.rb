@@ -1,13 +1,21 @@
+#親
 crumb :root do
   link "トップページ",root_path
 end
 
+#子
 crumb :mypage do
   link "マイページ",users_path
 end
 
+#孫
 crumb :logout do
   link "ログアウト", logout_users_path
+  parent :mypage
+end
+
+crumb :favorite do
+  link "お気に入り", like_users_path
   parent :mypage
 end
 

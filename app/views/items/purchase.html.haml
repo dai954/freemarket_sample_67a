@@ -26,7 +26,7 @@
    .wrap__main__in__content
 
     .wrap__main__in__content__inner
-
+     /credit_controller側へ飛び、購入の処理を行う
      = form_with(url: purchase_credit_path, class: "wrap__main__in__content__inner__form", local: true, method: :post) do |f|
       %ul.wrap__main__in__content__inner__form__table
        .wrap__main__in__content__inner__form__table__price 支払い金額
@@ -43,8 +43,10 @@
          .wrap__main__in__content__inner__form__info__inner__box__left 支払い方法
         .wrap__main__in__content__inner__form__info__inner__credit
          クレジットカード
+        /クレジットカード登録情報がない場合は登録画面にいく 
         - if @default_card_information.blank?
          %br /
+        /登録していたら、クレジットカード情報が表示される
         - else
          %br/
          = "**** **** **** " + @default_card_information.last4
@@ -59,6 +61,7 @@
          .wrap__main__in__content__inner__form__address__inner__box__left
           配送先
         .wrap__main__in__content__inner__form__address__inner__text
+         /購入者の住所表示
          = @user.addresses[0][:post]
 
          %br/
