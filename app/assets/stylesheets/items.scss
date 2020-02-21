@@ -508,7 +508,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &__1 {
+    &__imag {
       font-size: 50px;
       margin: 20px;
     }
@@ -517,7 +517,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    &__1{
+    &__main{
       background-color: white;
       height: 80px;
       width: calc(100vw - 700px);
@@ -528,14 +528,14 @@
       border-bottom: solid red;
       padding: 20px;
     }
-    &__2 {
+    &__det {
       background-color: white;
       width: calc(100vw - 700px);
       display:flex;
       font-size: 20px;
       padding: 20px;
 
-      &__1 {
+      &__rel {
         height: 20px;
         font-size: 15px;
         background-color: red;
@@ -544,71 +544,23 @@
         margin-top: 5px;
       }
     }
-    &__3 {
+    &__image {
       height: 100%;
       background-color: white;
       width: calc(100vw - 700px);
-      // display:flex;
       border-bottom: solid red;
       padding: 20px;
       font-size: 15px;
-
-      
-        &__2 {
-          &__1{
-            &__1{
-              &__1 {
-                // position: relative;
-                // margin-top: 100px;
-                &__1{
-                  // display: none;
-                  // z-index: 9999;
-                  // position: fixed;
-                  // top: 0px;
-                  // left: 0px;
-                }
-                // &__1{
-                  
-                //   &__1{
-                //     position: absolute;
-                //     top: 50%;
-                //     left: 0;
-                //     right: 0;
-                //     word-wrap: break-word;
-                //     // text-align: center;
-                //     display: flex;
-                //     justify-content: center;
-                //     align-items: center;
-                //     font-size: 14px;
-                //     line-height: 1.5;
-                //     transform: translate(0, -50%);
-                //     height: 160px;
-                //     background: #EEEEEE;
-                //     border: dashed 1px #C0C0C0;
-                //     cursor: pointer;
-                //     width: 100%;
-                //     display: block;
-                    
-                //   }
-                // }
-              }
-    
-            }
-          }
-          
-
-        }
-
     }
 
-    &__4 {
+    &__ite {
       background-color: white;
       width: calc(100vw - 700px);
       border-bottom: solid red;
       padding: 20px;
-      &__1 {
+      &__nam {
         display: flex;
-        &__1 {
+        &__rel {
           height: 20px;
           font-size: 15px;
           background-color: red;
@@ -617,16 +569,16 @@
           margin-left: 5px;
         }
       }
-      &__2 {
+      &__pla {
         display: flex;
-        &__1 {
+        &__now {
 
           width: calc(100vw - 1000px);
         }
       }
-      &__3 {
+      &__edi {
         display: flex;
-        &__1 {
+        &__rel {
           height: 20px;
           font-size: 15px;
           background-color: red;
@@ -635,22 +587,22 @@
           margin-left: 5px;
         }
       }
-      &__4 {
+      &__des {
         display: flex;
-        &__1 {
+        &__edi {
           height: 150px;
           width: calc(100vw - 800px);
         }
       }
     }
-    &__5 {
+    &__det {
       background-color: white;
       width: calc(100vw - 700px);
       display:flex;
       padding: 40px 20px 20px 40px;
       font-size: 30px;
     }
-    &__6 {
+    &__sub {
       background-color: white;
       width: calc(100vw - 700px);
       display: flex;
@@ -658,18 +610,17 @@
       padding: 20px;
       border-bottom: solid red;
     }
-    &__7 {
+    &__cname {
       display: flex;
       justify-content: flex-end;
       padding: 0 330px 0 30px;
     }
-    &__8 {
+    &__cat {
       display: flex;
-      // justify-content: flex-end;
       flex-direction: column;
       margin-left: 350px;
       padding: 0 80px 30px 0;
-      #item_category_id {
+      .aaaaa {
         height: 50px;
         width: 340px;
       }
@@ -677,29 +628,31 @@
         margin-left: -350px;
       }
     }
-    &__9 {
+    &__sname {
       display: flex;
       justify-content: flex-end;
       padding: 0 330px 0 30px;
     }
-    &__10 {
+    &__stat {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      margin-left: 350px;
       padding: 0 80px 30px 0;
-      #item_category_id {
+      #item_status {
         height: 50px;
         width: 340px;
+        
       }
     }
 
-    &__11 {
+    &__send {
       background-color: white;
       width: calc(100vw - 700px);
       display:flex;
       padding: 40px 20px 20px 40px;
       font-size: 30px;
     }
-    &__12 {
+    &__sendall {
       background-color: white;
       width: calc(100vw - 700px);
       display: flex;
@@ -707,81 +660,84 @@
       padding: 20px;
       border-bottom: solid red;
     }
-    &__13 {
+    &__mname {
       display: flex;
       justify-content: flex-end;
       padding: 0 330px 0 30px;
     }
-    &__14 {
+    &__meth {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      margin-left: 350px;
       padding: 0 80px 30px 0;
-      #item_category_id {
+      #item_method {
         height: 50px;
         width: 340px;
       }
     }
 
-      &__15 {
+      &__aname {
         display: flex;
         justify-content: flex-end;
         padding: 0 330px 0 30px;
       }
-      &__16 {
+      &__are {
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        margin-left: 350px;
         padding: 0 80px 30px 0;
-        #item_category_id {
+        #item_area_id {
           height: 50px;
           width: 340px;
         }
       }
 
-      &__17 {
+      &__bname {
         display: flex;
         justify-content: flex-end;
         padding: 0 310px 0 30px;
       }
-      &__18 {
+      &__bur {
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        margin-left: 350px;
         padding: 0 80px 30px 0;
-        #item_category_id {
+        #item_burden {
           height: 50px;
           width: 340px;
         }
       }
 
-    &__19 {
+    &__spname {
       background-color: white;
       width: calc(100vw - 700px);
       display:flex;
       padding: 40px 20px 20px 40px;
       font-size: 20px;
     }
-    &__20 {
+    &__pri {
       background-color: white;
       width: calc(100vw - 700px);
       display: flex;
       flex-direction: column;
       padding: 20px;
       border-bottom: solid red;
-      &__1 {
+      &__chi {
         display: flex;
         justify-content: flex-end;
 
-        &__1 {
+        &__cname {
           margin-top: 20px;
-          padding-right: 270px;
+          padding-right: 370px;
 
         }
-        &__2 {
+        &__cnames {
           display: flex;
-          &__1 {
+          &__dole {
             margin-top: 20px;
             margin-right: 10px;
           }
-          &__2 {
+          &__pridet {
 
             &__1 {
               height: 50px;
@@ -790,35 +746,29 @@
           }
         }
       }
-      &__2 {
+      &__comm {
         border-top: solid gray;
         border-bottom: solid gray;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         padding: 30px 0 30px 0;
-        margin: 15px 0 10px 290px;
-        // margin-top: 10px;
+        margin: 15px 0 10px 150px;
         &__1 {
-          display: flex;
-          justify-content: flex-end;
-          &__1 {
-            margin-left: 330px;
-          }
+          margin-left: 20px;
         }
       }
-      &__3 {
+      &__pro {
         display: flex;
         justify-content: space-between;
-        &__1 {
-          margin-left: 290px;
+        &__name {
+          margin-left: 170px;
         }
         &__2 {
           margin-left: 340px;
         }
-
+      }
     }
-    }
-    &__21 {
+    &__fot {
       background-color: white;
       width: calc(100vw - 700px);
       display:flex;
@@ -826,22 +776,22 @@
       align-items: center;
       border-bottom: solid red;
       padding: 20px;
-      &__1 {
+      &__err {
         &__1 {
           text-decoration: none;
         }
       }
-      &__2 {
+      &__fake {
         &__1 {
           text-decoration: none;
         }
       }
-      &__3 {
+      &__term {
         &__1 {
           text-decoration: none;
         }
       }
-      &__4 {
+      &__exp {
         height: 60px;
         width: calc(100vw - 900px);
         background-color: red;
@@ -856,7 +806,7 @@
           border: red;
         }
       }
-      &__5 {
+      &__retrn {
         height: 60px;
         width: calc(100vw - 1000px);
         background-color: gray;
@@ -879,13 +829,13 @@
     font-size: 10px;
     margin: 40px 300px 0 300px;
     text-decoration: none;
-    &__1 {
+    &__prvert {
       &__1 {
         text-decoration: none;
         color: black;
       }
     }
-    &__2 {
+    &__merukari {
       text-decoration: none;
       color: black;
       &__1 {
@@ -893,7 +843,7 @@
         color: black;
       }
     }
-    &__3 {
+    &__terg {
       text-decoration: none;
       color: black;
       &__1 {
@@ -902,15 +852,15 @@
       }
     }
   }
-  .hoge {
+  .logs {
     text-align: center;
-    &__1 {
+    &__ima {
       margin-top: 30px;
     }
-    &__2 {
+    &__furim {
       color: gray;
     }
-    &__3 {
+    &__last {
       margin-bottom: 40px;
       font-size: 10px;
     }
