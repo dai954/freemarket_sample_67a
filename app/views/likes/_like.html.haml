@@ -5,13 +5,13 @@
     /いいね削除して、remote: trueでdestroy.js.erbに飛ばす
     = link_to item_like_path(item_id: item.id ,id: item.likes[0].id), method: :delete, remote: true do
       .vertical_like
-        %i.material-icons.red-text お気に入り　❤️
+        %i.material-icons.red-text お気に入り ❤️
         %span.red-text
         = item.like_count
   - else
     /いいねして、remote: trueでcreate.js.erbに飛ばす
     = link_to item_likes_path(item.id), method: :post, remote: true do
       .vertical_like
-        %i.material-icons.grey-text.text-darken-2 お気に入り　❤️
+        %i.material-icons.grey-text.text-darken-2 お気に入り ❤️
         %span.grey-text.text-darken-2
         = item.like_count 
