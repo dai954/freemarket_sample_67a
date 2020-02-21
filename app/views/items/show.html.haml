@@ -44,14 +44,14 @@
               .item-photo__top--size__sold__inner
                 SOLD
           .item-photo__bottom
-            - @image.each do |image|
+            - @image.first(5).each do |image|
               = image_tag image.images.url, class: 'item-photo__bottom--size'
               /商品が売れた時の条件分岐
         - else
           .item-photo__top
             = image_tag @image[0].images.url, class: 'item-photo__top--size'
           .item-photo__bottom
-            - @image.each do |image|
+            - @image.first(5).each do |image|
               = image_tag image.images.url, class: 'item-photo__bottom--size'
               /商品在庫がある時の条件分岐
       %table.item-detail-table
@@ -66,16 +66,6 @@
 
               %br/
               = @item.category.name
-              
-          %tr
-            %th ブランド
-            %td
-              NIKE
-              = icon('fas', 'check')
-              
-          %tr
-            %th 商品のサイズ
-            %td
           %tr
             %th 商品の状態
             %td
