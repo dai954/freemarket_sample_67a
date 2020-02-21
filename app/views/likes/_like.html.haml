@@ -15,14 +15,3 @@
         %i.material-icons.grey-text.text-darken-2 お気に入り　❤️
         %span.grey-text.text-darken-2
         = item.like_count 
-- else
-  - if item.likes_count > 0
-    .vertical_like
-      %i.material-icons.red-text お気に入り ❤️
-      %span.red-text
-      = item.like_count 
-  - else
-    .vertical_like
-      %i.material-icons.grey-text.text-darken-2 お気に入り　❤️
-      %span.grey-text.text-darken-2
-      = item.like_count 
