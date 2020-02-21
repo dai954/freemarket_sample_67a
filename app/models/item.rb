@@ -26,5 +26,5 @@ class Item < ApplicationRecord
   def like_user(user_id)
     likes.find_by(user_id: user_id)
   end
-  
+  enum status: { '新品、未使用': 1, '未使用に近い': 2, '目立った傷や汚れなし': 3, 'やや傷や汚れなし': 4, '傷や汚れなし': 5, '傷や汚れあり': 6, '全体的に状態が悪い': 7}, _prefix: true
 end
