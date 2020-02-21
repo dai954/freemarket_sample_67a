@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'likes/create'
   get 'likes/destroy'
-  devise_for :users
+  # ログイン・新規登録で必要なルーティングが生成される
+  devise_for :users 
 
   root "items#index"
   namespace :items do
