@@ -520,7 +520,7 @@
     &__main{
       background-color: white;
       height: 80px;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display:flex;
       flex-direction: column;
       align-items: center;
@@ -530,7 +530,7 @@
     }
     &__det {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display:flex;
       font-size: 20px;
       padding: 20px;
@@ -547,7 +547,7 @@
     &__image {
       height: 100%;
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       border-bottom: solid red;
       padding: 20px;
       font-size: 15px;
@@ -555,7 +555,7 @@
 
     &__ite {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       border-bottom: solid red;
       padding: 20px;
       &__nam {
@@ -573,7 +573,7 @@
         display: flex;
         &__now {
 
-          width: calc(100vw - 1000px);
+          width: calc(100vw - 600px);
         }
       }
       &__edi {
@@ -591,20 +591,20 @@
         display: flex;
         &__edi {
           height: 150px;
-          width: calc(100vw - 800px);
+          width: calc(100vw - 500px);
         }
       }
     }
     &__det {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display:flex;
       padding: 40px 20px 20px 40px;
       font-size: 30px;
     }
     &__sub {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display: flex;
       flex-direction: column;
       padding: 20px;
@@ -622,7 +622,7 @@
       padding: 0 80px 30px 0;
       .aaaaa {
         height: 50px;
-        width: 340px;
+        width: calc(100vw - 800px);
       }
       &__1{
         margin-left: -350px;
@@ -640,21 +640,21 @@
       padding: 0 80px 30px 0;
       #item_status {
         height: 50px;
-        width: 340px;
+        width: calc(100vw - 800px);
         
       }
     }
 
     &__send {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display:flex;
       padding: 40px 20px 20px 40px;
       font-size: 30px;
     }
     &__sendall {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display: flex;
       flex-direction: column;
       padding: 20px;
@@ -672,7 +672,7 @@
       padding: 0 80px 30px 0;
       #item_method {
         height: 50px;
-        width: 340px;
+        width: calc(100vw - 800px);
       }
     }
 
@@ -688,7 +688,7 @@
         padding: 0 80px 30px 0;
         #item_area_id {
           height: 50px;
-          width: 340px;
+          width: calc(100vw - 800px);
         }
       }
 
@@ -704,20 +704,20 @@
         padding: 0 80px 30px 0;
         #item_burden {
           height: 50px;
-          width: 340px;
+          width: calc(100vw - 800px);
         }
       }
 
     &__spname {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display:flex;
       padding: 40px 20px 20px 40px;
       font-size: 20px;
     }
     &__pri {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display: flex;
       flex-direction: column;
       padding: 20px;
@@ -725,16 +725,18 @@
       &__chi {
         display: flex;
         justify-content: flex-end;
-
+        border-bottom: solid 1px gray;
+        padding-bottom: 10px;
         &__cname {
           margin-top: 20px;
-          padding-right: 370px;
+          // padding-right: 370px;
+          width: calc(100vw - 500px);
 
         }
         &__cnames {
           display: flex;
           &__dole {
-            margin-top: 20px;
+            margin-top: 12px;
             margin-right: 10px;
           }
           &__pridet {
@@ -747,30 +749,31 @@
         }
       }
       &__comm {
-        border-top: solid gray;
-        border-bottom: solid gray;
+        // border-top: solid gray;
+        
         display: flex;
         justify-content: space-between;
         padding: 30px 0 30px 0;
-        margin: 15px 0 10px 150px;
+        margin: 15px 0 10px 0;
         &__1 {
-          margin-left: 20px;
+          width: calc(100vw - 520px);
         }
       }
       &__pro {
         display: flex;
         justify-content: space-between;
         &__name {
-          margin-left: 170px;
+          // margin-left: 170px;
+          width: calc(100vw - 580px);
         }
         &__2 {
-          margin-left: 340px;
+          // margin-left: 340px;
         }
       }
     }
     &__fot {
       background-color: white;
-      width: calc(100vw - 700px);
+      width: calc(100vw - 400px);
       display:flex;
       flex-direction: column;
       align-items: center;
@@ -793,7 +796,7 @@
       }
       &__exp {
         height: 60px;
-        width: calc(100vw - 900px);
+        width: calc(100vw - 600px);
         background-color: red;
         margin-top: 30px;
         display: flex;
@@ -808,7 +811,7 @@
       }
       &__retrn {
         height: 60px;
-        width: calc(100vw - 1000px);
+        width: calc(100vw - 700px);
         background-color: gray;
         margin: 30px 0 30px 0;
         display: flex;
