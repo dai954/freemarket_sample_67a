@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-
+    @address_user_id = Address.find_by(user_id: current_user.id)
   end
 
   def like
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def card
+    @address_user_id = Address.find_by(user_id: current_user.id)
     card = Credit.where(user_id: current_user.id).first
     if card.blank?
       # redirect_to action: "new"
