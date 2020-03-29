@@ -5,6 +5,7 @@
     %title FreemarketSample67a
     = csrf_meta_tags
     = csp_meta_tag
+    = favicon_link_tag '/furima.box.png', rel: 'icon'
 
     -# = stylesheet_link_tag    'application', media: 'all'
     -# = javascript_include_tag 'application'
@@ -15,8 +16,7 @@
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
     = javascript_include_tag 'application'
   %body
-    
+
   = render 'layouts/notifications'
   = yield
   = render 'layouts/footer'
-  
